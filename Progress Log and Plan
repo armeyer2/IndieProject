@@ -11,3 +11,5 @@ Plan:
 	Week 1-3: Get the visual and front end basic portion completed and get the page ready for testing with the services I will be adding.
 
 	Week 3-5: Add a database to the site and add login screens so customers can subscribe. I also want to add paypal functionality to the site.
+	            The database will produce graphical results that will give a dynamic price to each customer based on how long they have subscribed,
+	            and how many others have plegged to buy.
