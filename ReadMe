@@ -1,0 +1,5 @@
+Problem: Ordering clothing online can be expensive and offer little to no discounts for being a reoccurring customer. Many companies cant keep thier customers returning to their site because of this.
+
+My solution: I am creating a dynamic single page application that will draw customers back to the site and encourage more people to buy with discounts based on a couple factors. The more who pledge to buy the item the lower the price will get regardless if they are returning customers. Second if you are a returning customer you will get a discount based on how often you purchase items and your month to month consistency. This will encourage people to return for every sale and in turn lower the price for everyone and encourage even more buyers.
+
+Web Services: My plan is to use paypals checkout cart and to make the entire application be single page for eaze of use for the customers. I will also be presenting graphical information dynamic to each customer showing them their prices and what discounts they and the group has accumulated hopefully inspiring more purchases.
