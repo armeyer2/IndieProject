@@ -15,6 +15,19 @@
     }
   });
 
+  $.('#overlay').click(function () {
+
+      console.log("overlay slected");
+      if(document.getElementById("overlay").style.display == "block"){
+          document.getElementById("overlay").style.display = "none";
+          console.log("Taking down popup");
+      } else {
+          document.getElementById("overlay").style.display = "block";
+          console.log("Putting up popup");
+      }
+
+  });
+
 
 
   $('.price').click(function() {
@@ -63,3 +76,5 @@
 
 
 })(jQuery); // End of use strict
+
+

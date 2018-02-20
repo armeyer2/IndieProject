@@ -40,16 +40,14 @@
     <div class="jumbotron" >
         <img id="jumbotronImage" src="img/winter forest png.png" alt="winter forest">
         <a id="scrollButton" href="#doubleShirt" class="btn btn-circle js-scroll-trigger">
-
             <i class="fa fa-angle-double-down animated"></i>
         </a>
     </div>
 </div>
 
-
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">January</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">February</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -66,9 +64,6 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" id="galleryButton" href="..\gallery.html">Gallery</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="..\index.html">February</a>
-                </li>
 
             </ul>
         </div>
@@ -84,15 +79,19 @@
                 <img src="img/winter forest line up cartoons2.png" alt="Double Shirt">
             </div>
         </div>
-        <div id="price"class="row">
+        <div id="price" class="row">
             <div id="shirtInfo" class="col-xs-12 text-center">
-                <h2 id="priceText">Group Buy Over!</h2>
-                <h2 class="phoneText">Group Buy Over!</h2>
-
+                <h2 id="priceText">Crewneck $29.99 - Long Sleeve $24.99</h2>
+                <h2 class="phoneText">Crewneck $29.99</h2>
+                <h2 class="phoneText">Long Sleeve $24.99</h2>
+                <p class="paragraph">(includes sticker)</p>
                 <div id="info">
-                    <p class="paragraph">This month's crewneck and t-shirt draws on the cold of winter. Pulling inspiration from winter forests of Yosemite National Park.</p>
+                    <p class="paragraph">This months line-up is inspired by the lush forests of Yellowstone National Park.</p>
                 </div>
+                <div class="col-xs-6" id="formPurchaseArea">
+                    <button type="button" id="purchase" class="btn reminder" name="purchaseButton">Purchase</button>
 
+                </div>
                 <div class="col-xs-6" id="formArea">
                     <button type="button" id="reminder" class="btn reminder" name="button">Reminder for the next drop?</button>
                 </div>
@@ -116,6 +115,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 

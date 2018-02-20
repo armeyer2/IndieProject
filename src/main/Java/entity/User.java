@@ -29,8 +29,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "birthYear")
-    private int birth_year;
+    @Column(name = "birth_year")
+    private int birthYear;
 
 
     @Id
@@ -38,13 +38,13 @@ public class User {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    public User(){
+    public User() {
         final Logger logger = LogManager.getLogger(this.getClass());
 
 
     }
 
-    public User(String firstName, String lastName, String birthYear) {
+    public User(String firstName, String lastName, int birthYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
@@ -67,12 +67,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getBirth_year() {
-        return birth_year;
+    public int getBirthYear() {
+        return birthYear;
     }
 
-    public void setBirth_year(int birth_year) {
-        this.birth_year = birth_year;
+    public void setBirthYear(int birth_year) {
+        this.birthYear = birth_year;
     }
 
     public int getId() {
@@ -82,3 +82,6 @@ public class User {
     public void setId(int id) {
         this.id = id;
     }
+
+}
+

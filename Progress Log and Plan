@@ -4,7 +4,11 @@ Time Log:
 
 	Week 2: Currently have the website up and hosted on aaronmeyer.getforge.io as a holder website so I can test it on my phone and multiple devices. I have been able to get the website fully responsive and functional with any device.
 
-	Week 3: Working on getting the site implemented into my git project. I want to start cutting down all of the extra vendor files that are tied to my site as well. 
+	Week 3: Working on getting the site implemented into my git project. I want to start cutting down all of the extra vendor files that are tied to my site as well.
+
+	Week 4: Implemented an initial Hybernate Data base with basic user info.
+
+	Week 5: Added JQuery to the site and got most of the single page application done. Want to add sign in page next week.
 
 Plan:
 
@@ -13,3 +17,9 @@ Plan:
 	Week 3-5: Add a database to the site and add login screens so customers can subscribe. I also want to add paypal functionality to the site.
 	            The database will produce graphical results that will give a dynamic price to each customer based on how long they have subscribed,
 	            and how many others have plegged to buy.
+
+	Week 6-7: Start increasing the data to be presented in the indieProject database. Planning on starting to find frameworks
+	            to present the data in graph form to show the user their discounts and info. The plan is for two tables, one group table
+	            for group discounts and then the user table for individual discounts.
+
+	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of users past purchases.
