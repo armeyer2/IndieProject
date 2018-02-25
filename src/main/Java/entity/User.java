@@ -42,6 +42,7 @@ public class User {
      * Instantiates a new User.
      */
     public User() {
+
     }
 
     /**
