@@ -915,7 +915,7 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="231" parent="3" name="order">
+    <table id="231" parent="3" name="orders">
       <Engine>InnoDB</Engine>
     </table>
     <table id="232" parent="3" name="user">
@@ -977,7 +977,7 @@
       <DataType>int(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="232" name="userName">
+    <column id="243" parent="232" name="user_name">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
