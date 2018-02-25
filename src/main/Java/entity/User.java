@@ -1,31 +1,36 @@
 package entity;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.ejb.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
+<<<<<<< HEAD
 
 import entity.Orders;
+=======
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
 
 /**
- * TODO At minimum, complete the following
- * TODO create no-arg constructor
- * TODO create getters and setters
- * TODO add hibernate annotations
- * TODO Javadoc comments
+ * A class to represent a user.
+ *
+ * @author armeyer2
  */
-
-@Entity(name = "userEntity")
+@Entity(name = "User")
 @Table(name = "user")
+<<<<<<< HEAD
 
 public class Orders {
+=======
+public class User {
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -33,63 +38,127 @@ public class Orders {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "birth_year")
-    private int birthYear;
+    @Column(name = "user_name", unique = true, nullable = false)
+    private String userName;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Orders> orders = new HashSet<>();
 
+=======
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private int id;
 
+<<<<<<< HEAD
     public Orders() {
         final Logger logger = LogManager.getLogger(this.getClass());
+=======
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Order> orders = new HashSet<>();
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
 
+    /**
+     * Instantiates a new User.
+     */
+    public User() {
 
     }
 
+<<<<<<< HEAD
     public Orders(String firstName, String lastName, int birthYear) {
+=======
+    /**
+     * Instantiates a new User.
+     *
+     * @param firstName   the first name
+     * @param lastName    the last name
+     * @param userName    the user name
+     * @param dateOfBirth the date of birth
+     */
+    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthYear = birthYear;
-
+        this.userName = userName;
+        this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     * Gets first name.
+     *
+     * @return the first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Sets first name.
+     *
+     * @param firstName the first name
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets last name.
+     *
+     * @return the last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Sets last name.
+     *
+     * @param lastName the last name
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public int getBirthYear() {
-        return birthYear;
+    /**
+     * Gets user name.
+     *
+     * @return the user name
+     */
+    public String getUserName() {
+        return userName;
     }
 
-    public void setBirthYear(int birth_year) {
-        this.birthYear = birth_year;
+    /**
+     * Sets user name.
+     *
+     * @param userName the user name
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public Set<Orders> getOrders() {
         return orders;
     }
@@ -98,4 +167,84 @@ public class Orders {
         this.orders = orders;
     }
 }
+=======
+    /**
+     * Gets date of birth.
+     *
+     * @return the date of birth
+     */
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+>>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
 
+    /**
+     * Sets date of birth.
+     *
+     * @param dateOfBirth the date of birth
+     */
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    /**
+     * Gets age.
+     *
+     * @return the age
+     */
+    public int getAge() {
+
+        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+    }
+
+    /**
+     * Gets orders.
+     *
+     * @return the orders
+     */
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    /**
+     * Sets orders.
+     *
+     * @param orders the orders
+     */
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    /**
+     * Add a order.
+     *
+     * @param order the order to add
+     */
+    public void addOrder(Order order) {
+        orders.add( order );
+        order.setUser( this );
+    }
+
+    /**
+     * Remove a order.
+     *
+     * @param order the order to remove
+     */
+    public void removeOrder(Order order) {
+        orders.remove( order );
+        order.setUser( null );
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", id=" + id +
+                ", dateOfBirth=" + dateOfBirth +
+                ", age=" + getAge() +
+                // ", orders=" + getorders() +
+                '}';
+    }
+}
