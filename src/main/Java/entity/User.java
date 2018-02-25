@@ -25,7 +25,7 @@ import entity.Orders;
 public class Orders {
 =======
 public class User {
->>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
