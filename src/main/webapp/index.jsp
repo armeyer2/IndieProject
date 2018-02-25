@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width" />
     <title>Front-End</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -15,26 +16,6 @@
     <link href="css/newIndex.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- <nav id="page-top" class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-      <div class="navbar-header">
-          <a class="navbar-brand" href="#">January</a>
-      </div>
-      <ul >
-          <li class="nav-item">
-            <a class="nav-link navbar-right" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-      </ul>
-     <div class="container">
-</nav> -->
-<!-- Navigation -->
 
 <div class="container-fluid">
     <div class="jumbotron" >
@@ -54,7 +35,7 @@
             <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul id="navbarLinks"class="navbar-nav ml-auto">
+            <ul id="navbarLinks" class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#doubleShirt">Products</a>
                 </li>
@@ -64,11 +45,35 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" id="galleryButton" href="..\gallery.html">Gallery</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="signIn">Sign In</a>
+                </li>
 
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="container-fluid" id="overlay">
+    <form>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="button" id="closeSignUp" class="btn btn-default" name="button">Close</button>
+  </form>
+
+</div>
+
+
 
 
 <section id="merch" class="content-section">

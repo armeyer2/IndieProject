@@ -4178,7 +4178,7 @@ Data.prototype = {
 };
 var dataPriv = new Data();
 
-var dataUser = new Data();
+var dataOrders = new Data();
 
 
 
@@ -4235,7 +4235,7 @@ function dataAttr( elem, key, data ) {
 			} catch ( e ) {}
 
 			// Make sure we set the data so it isn't changed later
-			dataUser.set( elem, key, data );
+			dataOrders.set( elem, key, data );
 		} else {
 			data = undefined;
 		}
@@ -4245,15 +4245,15 @@ function dataAttr( elem, key, data ) {
 
 jQuery.extend( {
 	hasData: function( elem ) {
-		return dataUser.hasData( elem ) || dataPriv.hasData( elem );
+		return dataOrders.hasData( elem ) || dataPriv.hasData( elem );
 	},
 
 	data: function( elem, name, data ) {
-		return dataUser.access( elem, name, data );
+		return dataOrders.access( elem, name, data );
 	},
 
 	removeData: function( elem, name ) {
-		dataUser.remove( elem, name );
+		dataOrders.remove( elem, name );
 	},
 
 	// TODO: Now that all calls to _data and _removeData have been replaced
@@ -4276,7 +4276,7 @@ jQuery.fn.extend( {
 		// Gets all values
 		if ( key === undefined ) {
 			if ( this.length ) {
-				data = dataUser.get( elem );
+				data = dataOrders.get( elem );
 
 				if ( elem.nodeType === 1 && !dataPriv.get( elem, "hasDataAttrs" ) ) {
 					i = attrs.length;
@@ -4302,7 +4302,7 @@ jQuery.fn.extend( {
 		// Sets multiple values
 		if ( typeof key === "object" ) {
 			return this.each( function() {
-				dataUser.set( this, key );
+				dataOrders.set( this, key );
 			} );
 		}
 
@@ -4318,7 +4318,7 @@ jQuery.fn.extend( {
 
 				// Attempt to get data from the cache
 				// The key will always be camelCased in Data
-				data = dataUser.get( elem, key );
+				data = dataOrders.get( elem, key );
 				if ( data !== undefined ) {
 					return data;
 				}
@@ -4338,14 +4338,14 @@ jQuery.fn.extend( {
 			this.each( function() {
 
 				// We always store the camelCased key
-				dataUser.set( this, key, value );
+				dataOrders.set( this, key, value );
 			} );
 		}, null, value, arguments.length > 1, null, true );
 	},
 
 	removeData: function( key ) {
 		return this.each( function() {
-			dataUser.remove( this, key );
+			dataOrders.remove( this, key );
 		} );
 	}
 } );
@@ -5684,11 +5684,11 @@ function cloneCopyEvent( src, dest ) {
 	}
 
 	// 2. Copy user data
-	if ( dataUser.hasData( src ) ) {
-		udataOld = dataUser.access( src );
+	if ( dataOrders.hasData( src ) ) {
+		udataOld = dataOrders.access( src );
 		udataCur = jQuery.extend( {}, udataOld );
 
-		dataUser.set( dest, udataCur );
+		dataOrders.set( dest, udataCur );
 	}
 }
 
@@ -5888,11 +5888,11 @@ jQuery.extend( {
 					// Assign undefined instead of using delete, see Data#remove
 					elem[ dataPriv.expando ] = undefined;
 				}
-				if ( elem[ dataUser.expando ] ) {
+				if ( elem[ dataOrders.expando ] ) {
 
 					// Support: Chrome <=35 - 45+
 					// Assign undefined instead of using delete, see Data#remove
-					elem[ dataUser.expando ] = undefined;
+					elem[ dataOrders.expando ] = undefined;
 				}
 			}
 		}

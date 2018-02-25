@@ -8,6 +8,10 @@ import javax.ejb.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.Set;
+
+import entity.Orders;
 
 /**
  * TODO At minimum, complete the following
@@ -20,7 +24,7 @@ import java.time.temporal.ChronoUnit;
 @Entity(name = "userEntity")
 @Table(name = "user")
 
-public class User {
+public class Orders {
 
 
     @Column(name = "first_name")
@@ -32,19 +36,22 @@ public class User {
     @Column(name = "birth_year")
     private int birthYear;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Orders> orders = new HashSet<>();
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    public User() {
+    public Orders() {
         final Logger logger = LogManager.getLogger(this.getClass());
 
 
     }
 
-    public User(String firstName, String lastName, int birthYear) {
+    public Orders(String firstName, String lastName, int birthYear) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthYear = birthYear;
@@ -83,5 +90,12 @@ public class User {
         this.id = id;
     }
 
+    public Set<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Orders> orders) {
+        this.orders = orders;
+    }
 }
 

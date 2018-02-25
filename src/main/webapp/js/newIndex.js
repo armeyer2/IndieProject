@@ -15,18 +15,7 @@
     }
   });
 
-  $.('#overlay').click(function () {
 
-      console.log("overlay slected");
-      if(document.getElementById("overlay").style.display == "block"){
-          document.getElementById("overlay").style.display = "none";
-          console.log("Taking down popup");
-      } else {
-          document.getElementById("overlay").style.display = "block";
-          console.log("Putting up popup");
-      }
-
-  });
 
 
 
@@ -65,16 +54,21 @@
   $('#mailButton').click(function() {
     document.getElementById("mailButton").innerHTML = "<p>Sent!</p>";
   });
+
+  $("#signIn").click(function() {
+      document.getElementById("overlay").style.display = "block";
+  })
+  $("#closeSignUp").click(function() {
+      document.getElementById("overlay").style.display = "none";
+  })
+
   // Closes responsive menu when a scroll trigger link is clicked
   $('.js-scroll-trigger').click(function() {
     $('.navbar-collapse').collapse('hide');
     $("price").fadeIn();
-
 
   });
 
 
 
 })(jQuery); // End of use strict
-
-

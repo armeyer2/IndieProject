@@ -22,4 +22,4 @@ Plan:
 	            to present the data in graph form to show the user their discounts and info. The plan is for two tables, one group table
 	            for group discounts and then the user table for individual discounts.
 
-	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of users past purchases.
+	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of orders past purchases.

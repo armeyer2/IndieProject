@@ -1,14 +1,14 @@
 body {
-  font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: black;
-  background-color: white; }
+    font-family: 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-color: white; }
 
 html {
-  width: 100%;
-  height: 100%; }
+    width: 100%;
+    height: 100%; }
 
 h1,
 h2,
@@ -17,29 +17,43 @@ h4,
 h5,
 label,
 h6 {
-  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  margin: 0 0 35px;
-  letter-spacing: 1px;
-  text-transform: uppercase; }
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    margin: 0 0 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
 
 p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0 0 25px; }
-  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 25px; }
+@media (min-width: 768px) {
     p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin: 0 0 35px; } }
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0 0 35px; } }
 
-      img{max-width:100%;}
-      .jumbotron h1 {word-wrap: break-word;}
+img{max-width:100%;}
+.jumbotron h1 {word-wrap: break-word;}
 
 footer {
     margin-top: 20%;
     align-content: center;
     text-align: center;
+
+
+}
+
+
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
 
 @media (max-width: 768px) {
@@ -64,7 +78,25 @@ footer {
         margin-top: 10px;
     }
 
- }
+    #overlay {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        background-color: white;
+        width: 60%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 1;
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+    }
+
+}
 @media (min-width: 768px) {
     #shirt {
         display: none;
@@ -72,6 +104,24 @@ footer {
     .phoneText {
         display: none;
         padding-top: 0%;
+    }
+
+    #overlay {
+        position: fixed; /* Sit on top of the page content */
+        display: none; /* Hidden by default */
+        background-color: white;
+        width: 60%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        padding-left: 30%;
+        padding-right: 30%;
+        padding-top: 20%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,2); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
     }
 }
 #jumbotronImage {
@@ -138,12 +188,12 @@ footer {
     height:50px;
     background-color: white;
 
-   border:2px solid grey;
-   height:50px;
-   border-radius:50%;
-   -moz-border-radius:50%;
-   -webkit-border-radius:50%;
-   width:50px;
+    border:2px solid grey;
+    height:50px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:50px;
 
 }
 #navbarLinks {
@@ -207,7 +257,7 @@ i {
 }
 
 #shirtInfo {
-        align-content: center;
-        width: 100%;
-        margin-top: 15%;
+    align-content: center;
+    width: 100%;
+    margin-top: 15%;
 }
