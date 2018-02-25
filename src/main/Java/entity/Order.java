@@ -17,11 +17,15 @@ public class Order {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "user_id")
+    private int userId;
 
 
     @ManyToOne
-    private User user;
+    private entity.User user;
 
     /**
      * Instantiates a new Order.
@@ -38,6 +42,14 @@ public class Order {
     public Order(String description, User user) {
         this.description = description;
         this.user = user;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     /**
