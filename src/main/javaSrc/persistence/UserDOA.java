@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import javaSrc.entity.User;
-import javaSrc.entity.Order;
+import persistence.SessionFactoryProvider;
 
 import javax.persistence.criteria.*;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class UserDOA {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
-    SessionFactory sessionFactory = Java.persistence.SessionFactoryProvider.getSessionFactory();
+    SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     /**
      * Get user by id
