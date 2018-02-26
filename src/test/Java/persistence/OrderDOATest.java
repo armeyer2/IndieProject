@@ -7,7 +7,9 @@ import java.lang.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import entity.Order;
+import java.entity.Order;
+import java.entity.User;
+import java.persistence.OrderDOA;
 
 
 import java.time.LocalDate;

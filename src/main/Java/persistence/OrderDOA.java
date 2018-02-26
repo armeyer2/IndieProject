@@ -1,6 +1,6 @@
-package persistence;
+package java.persistence;
 
-import entity.Order;
+import java.entity.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -23,7 +23,7 @@ public class OrderDOA {
      *
      * @return the all orders
      */
-    public List<Order> getAllOrders() {
+    public List<java.entity.Order> getAllOrders() {
 
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
