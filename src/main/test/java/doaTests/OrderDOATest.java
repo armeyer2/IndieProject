@@ -1,4 +1,4 @@
-package java.persistence;
+package doaTests;
 
 import org.hibernate.boot.model.relational.Database;
 import org.junit.jupiter.api.Test;
@@ -7,9 +7,9 @@ import java.lang.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.entity.Order;
-import java.entity.User;
-import java.persistence.OrderDOA;
+import javaSrc.entity.Order;
+import javaSrc.entity.User;
+import javaSrc.persistence.OrderDOA;
 
 
 import java.time.LocalDate;

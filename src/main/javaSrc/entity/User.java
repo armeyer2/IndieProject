@@ -1,4 +1,4 @@
-package java.entity;
+package javaSrc.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
-import java.entity.Order;
+import javaSrc.entity.Order;
 
 /**
  * A class to represent a user.

@@ -1,7 +1,7 @@
-package java.entity;
+package javaSrc.entity;
 
 import org.hibernate.annotations.GenericGenerator;
-import java.entity.User;
+import javaSrc.entity.User;
 
 import javax.persistence.*;
 
@@ -25,7 +25,7 @@ public class Order {
 
 
     @ManyToOne
-    private java.entity.User user;
+    private javaSrc.entity.User user;
 
     /**
      * Instantiates a new Order.

@@ -1,12 +1,12 @@
-package java.persistence;
+package javaSrc.persistence;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import java.entity.User;
-import java.entity.Order;
+import javaSrc.entity.User;
+import javaSrc.entity.Order;
 
 import javax.persistence.criteria.*;
 import java.util.List;
