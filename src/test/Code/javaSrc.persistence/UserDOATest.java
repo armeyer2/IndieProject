@@ -100,12 +100,16 @@ class UserDaoTest {
      */
     @Test
     void deleteSuccess() {
-        User user = new User("Test", "Dude", "testDude", 1996);
+        User newUser = new User("Fred", "Flintstone", "fflintstone", 1986);
+        int id = dao.insert(newUser);
+        assertNotEquals(0, id);
+        User insertedUser = dao.getById(id);
+        assertNotNull(insertedUser);
+        assertEquals("Fred", insertedUser.getFirstName());
 
-        dao.insert(user);
-
-        dao.delete(user);
-        assertNull(user);
+        dao.delete(newUser);
+        List<User> users = dao.getByPropertyLike("lastName", "Flinstone");
+        assertEquals(0, users.size());
     }
 
     /**
@@ -125,7 +129,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "Mann");
+        List<User> users = dao.getByPropertyEqual("lastName", "Mann");
         assertEquals(1, users.size());
         assertEquals(1, users.get(0).getId());
     }

@@ -40,7 +40,7 @@ class OrderDaoTest {
     @Test
     void getAllOrdersSuccess() {
         List<Order> orders = dao.getAllOrders();
-        assertEquals(6, orders.size());
+        assertEquals(3, orders.size());
     }
 
 
@@ -49,10 +49,29 @@ class OrderDaoTest {
      */
     @Test
     void getByIdOrderSuccess() {
-        Order retrievedOrder = dao.getById(1);
+        Order retrievedOrder = dao.getById(2);
         assertNotNull(retrievedOrder);
-        assertEquals("February Small Crewneck", retrievedOrder.getDescription());
+        assertEquals("February Large Long-Sleeve", retrievedOrder.getDescription());
 
+    }
+
+    /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<Order> orders = dao.getByPropertyEqual("description", "February Large Long-Sleeve");
+        assertEquals(1, orders.size());
+        assertEquals(2, orders.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Order> orders = dao.getByPropertyLike("description", "SSD");
+        assertEquals(1, orders.size());
     }
 
 
@@ -71,7 +90,10 @@ class OrderDaoTest {
         assertNotNull(insertedOrder);
         assertEquals(orderDescription, insertedOrder.getDescription());
         assertNotNull(insertedOrder.getUser());
-        assertEquals("Dave", insertedOrder.getUser().getFirstName());// TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertEquals("Dave", insertedOrder.getUser().getFirstName());
+
+        dao.delete(newOrder);
+        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
     }
 
 
@@ -88,8 +110,9 @@ class OrderDaoTest {
         Order newOrder = new Order(orderDescription, user);
         user.addOrder(newOrder);
 
-        dao.delete(dao.getById(1));
-        assertNull(dao.getById(1));
+        dao.delete(newOrder);
+        List<Order> orders = dao.getByPropertyLike("description", "February Large Test-Tshirt Delete");
+        assertEquals(0, orders.size());
     }
 
     /**
