@@ -51,15 +51,12 @@ class OrderDaoTest {
         Order retrievedOrder = dao.getById(1);
         assertNotNull(retrievedOrder);
         assertEquals("February Small Crewneck", retrievedOrder.getDescription());
-        assertEquals(2, retrievedOrder.getUserId());
+
     }
 
 
     @Test
     void insertSuccess() {
-
-        List<Order> booksReturned = dao.getAllOrders();
-        int initialAmount = booksReturned.size();
 
         Order newOrderTest = new Order();
         newOrderTest.setId(20);
@@ -68,11 +65,7 @@ class OrderDaoTest {
 
         dao.insert(newOrderTest);
 
-        List<Order> booksReturnedInsert = dao.getAllOrders();
-        int secondaryAmount = booksReturnedInsert.size();
-
-        int newAmount = secondaryAmount - initialAmount;
-        assertEquals(1, newAmount);
+        assertEquals(20, newOrderTest.getId());
 
         dao.delete(newOrderTest);
         // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode

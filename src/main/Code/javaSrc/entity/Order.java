@@ -23,9 +23,16 @@ public class Order {
     @Column(name = "user_id")
     private int userId;
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     @ManyToOne
-    private javaSrc.entity.User user;
+    private User user;
 
     /**
      * Instantiates a new Order.
@@ -44,13 +51,6 @@ public class Order {
         this.user = user;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     /**
      * Gets id.
