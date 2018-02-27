@@ -60,6 +60,7 @@ public class UserDOA {
         session.delete(user);
         transaction.commit();
         session.close();
+        logger.debug("Delete class opened and sent user: " + user);
     }
 
 

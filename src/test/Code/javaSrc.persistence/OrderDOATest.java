@@ -13,6 +13,7 @@ import javaSrc.persistence.OrderDOA;
 
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +40,7 @@ class OrderDaoTest {
     @Test
     void getAllOrdersSuccess() {
         List<Order> orders = dao.getAllOrders();
-        assertEquals(3, orders.size());
+        assertEquals(6, orders.size());
     }
 
 
@@ -60,7 +61,7 @@ class OrderDaoTest {
 
         UserDOA userDao = new UserDOA();
         User user = userDao.getById(1);
-        String orderDescription = "SSD and New Cable";
+        String orderDescription = "February Large Test-Tshirt";
 
         Order newOrder = new Order(orderDescription, user);
         user.addOrder(newOrder);
@@ -70,7 +71,7 @@ class OrderDaoTest {
         assertNotNull(insertedOrder);
         assertEquals(orderDescription, insertedOrder.getDescription());
         assertNotNull(insertedOrder.getUser());
-        assertEquals("Joe", insertedOrder.getUser().getFirstName());// TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertEquals("Dave", insertedOrder.getUser().getFirstName());// TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
     }
 
 
@@ -80,19 +81,15 @@ class OrderDaoTest {
     @Test
     void deleteSuccess() {
 
-        User user = new User();
-        user.setId(100);
-        user.setFirstName("Tom");
-        user.setLastName("Davidson");
-        user.setDateOfBirth(1998);
-        user.setUserName("tomD");
+        UserDOA userDao = new UserDOA();
+        User user = userDao.getById(1);
+        String orderDescription = "February Large Test-Tshirt Delete";
 
-        Order newOrderTest = new Order("February Large T-Shirt", user);
-        user.addOrder(newOrderTest);
+        Order newOrder = new Order(orderDescription, user);
+        user.addOrder(newOrder);
 
-
-        dao.delete(dao.getById(100));
-        assertNull(dao.getById(100));
+        dao.delete(dao.getById(1));
+        assertNull(dao.getById(1));
     }
 
     /**
