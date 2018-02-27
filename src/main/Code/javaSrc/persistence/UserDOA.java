@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import javaSrc.entity.User;
-import persistence.SessionFactoryProvider;
+import javaSrc.persistence.SessionFactoryProvider;
 
 import javax.persistence.criteria.*;
 import java.util.List;

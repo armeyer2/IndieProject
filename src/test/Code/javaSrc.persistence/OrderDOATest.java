@@ -1,4 +1,4 @@
-package doaTests;
+package javaSrc.persistence;
 
 import org.hibernate.boot.model.relational.Database;
 import org.junit.jupiter.api.Test;
