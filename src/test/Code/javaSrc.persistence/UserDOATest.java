@@ -61,7 +61,7 @@ class UserDaoTest {
     void insertWithOrderSuccess() {
 
         String orderName = "Order 1";
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1168-01-01"));
+        User newUser = new User("Fred", "Flintstone", "fflintstone", 1967);
         Order order = new Order(orderName, newUser);
         newUser.addOrder(order);
         int id = dao.insert(newUser);
@@ -81,7 +81,7 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1168-01-01"));
+        User newUser = new User("Fred", "Flintstone", "fflintstone", 1986);
         int id = dao.insert(newUser);
         assertNotEquals(0, id);
         User insertedUser = dao.getById(id);
@@ -97,8 +97,15 @@ class UserDaoTest {
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(3));
-        assertNull(dao.getById(3));
+        User user = new User();
+        user.setId(101);
+        user.setFirstName("Tom");
+        user.setLastName("Davidson");
+        user.setDateOfBirth(1998);
+        user.setUserName("tomD");
+
+        dao.delete(dao.getById(101));
+        assertNull(dao.getById(101));
     }
 
     /**

@@ -20,18 +20,9 @@ public class Order {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "user_id")
-    private int userId;
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     @ManyToOne
+
     private User user;
 
     /**

@@ -33,7 +33,7 @@ public class User {
     private String userName;
 
     @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+    private int dateOfBirth;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
@@ -54,7 +54,7 @@ public class User {
      * @param userName    the user name
      * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
+    public User(String firstName, String lastName, String userName, int dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -139,7 +139,7 @@ public class User {
      *
      * @return the date of birth
      */
-    public LocalDate getDateOfBirth() {
+    public int getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -148,19 +148,10 @@ public class User {
      *
      * @param dateOfBirth the date of birth
      */
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    /**
-     * Gets age.
-     *
-     * @return the age
-     */
-    public int getAge() {
-
-        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
-    }
 
     /**
      * Gets orders.
@@ -208,7 +199,6 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + getAge() +
                 // ", orders=" + getorders() +
                 '}';
     }
