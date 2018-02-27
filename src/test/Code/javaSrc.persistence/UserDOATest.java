@@ -40,7 +40,7 @@ class UserDaoTest {
     @Test
     void getAllUsersSuccess() {
         List<User> users = dao.getAll();
-        assertEquals(6, users.size());
+        assertEquals(4, users.size());
     }
 
 
@@ -51,7 +51,7 @@ class UserDaoTest {
     void getByIdSuccess() {
         User retrievedUser = dao.getById(3);
         assertNotNull(retrievedUser);
-        assertEquals("Barney", retrievedUser.getFirstName());
+        assertEquals("Brian", retrievedUser.getFirstName());
     }
 
     /**
@@ -70,6 +70,8 @@ class UserDaoTest {
         assertNotNull(insertedUser);
         assertEquals("Fred", insertedUser.getFirstName());
         assertEquals(1, insertedUser.getOrders().size());
+
+        dao.delete((User) dao.getByPropertyEqual("first_name", "Fred"));
         // Could continue comparing all values, but
         // it may make sense to use .equals()
         // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
@@ -103,6 +105,8 @@ class UserDaoTest {
         user.setLastName("Davidson");
         user.setDateOfBirth(1998);
         user.setUserName("tomD");
+
+        dao.insert(user);
 
         dao.delete(dao.getById(101));
         assertNull(dao.getById(101));
