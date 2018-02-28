@@ -9,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link href="css/newIndex.css" rel="stylesheet">
 </head>
 <body>
@@ -71,13 +73,27 @@
 </nav>
 
 
+
+
+
 <section id="merch" class="content-section">
     <div class="container-fluid">
         <div class="row">
             <div id="doubleShirt" class="col-md-12 text-center">
 
                 <img src="img/winter forest line up cartoons2.png" alt="Double Shirt">
+                <a id="scrollButtonProduct" href="#chart-container" class="btn btn-circle js-scroll-trigger">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
             </div>
+        </div>
+        <div id="chart-container" class="container-fluid">
+            <canvas id="myChart" ></canvas>
+            <div id="my_div" class="hide">
+                <h2 id="priceText">Crewneck $29.99 - Long Sleeve $24.99</h2>
+                <h2 class="phoneText">Crewneck $29.99</h2>
+            </div>
+
         </div>
         <div id="price" class="row">
             <div id="shirtInfo" class="col-xs-12 text-center">
@@ -149,6 +165,7 @@
 
 <!-- Custom scripts -->
 <script src="js/newIndex.js"></script>
+<script src="js/chartScript.js"></script>
 
 </body>
 </html>

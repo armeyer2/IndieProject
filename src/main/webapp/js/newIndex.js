@@ -8,14 +8,14 @@
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top - 48)
+          scrollTop: (target.offset().top - 20)
         }, 1000, "easeInOutExpo");
         return false;
       }
     }
   });
 
-  $.('#overlay').click(function () {
+  $('#overlay').click(function () {
 
       console.log("overlay slected");
       if(document.getElementById("overlay").style.display == "block"){
@@ -27,6 +27,18 @@
       }
 
   });
+
+  $('#chart-container').click(function () {
+      setTimeout(showPrice, 2000);  //se
+      console.log("t shirt button clicked");
+
+  });
+
+  function showPrice() {
+      setTimeout(document.getElementById("my_div").className="show", 2000);  //se
+      console.log("showPrice opened");
+  }
+
 
 
 

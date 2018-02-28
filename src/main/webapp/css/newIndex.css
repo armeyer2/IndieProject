@@ -46,6 +46,9 @@ footer {
     #scrollButton {
         display: none;
     }
+    #scrollButtonProduct {
+        display: none;
+    }
     #jumbotronImage {
         margin-top: 10%;
     }
@@ -63,9 +66,17 @@ footer {
     #hamburger {
         margin-top: 10px;
     }
+    #chart-container {
+        width: 100%;
+        padding-top: 20%;
+    }
 
  }
 @media (min-width: 768px) {
+    #chart-container {
+        width: 60%;
+        padding-top: 12%;
+    }
     #shirt {
         display: none;
     }
@@ -146,8 +157,41 @@ footer {
    width:50px;
 
 }
-#navbarLinks {
 
+#scrollButtonProduct {
+    position:absolute;
+    bottom:50%;
+    right:50%;
+    width:100px;
+    height:50px;
+    background-color: white;
+
+    border:2px solid grey;
+    height:50px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:50px;
+
+}
+
+<!--
+
+.hide{
+    display:none;
+}
+.show{
+    display:block;
+    position:absolute;
+    left: 200px;
+    top: 200px;
+    color: blue;
+}
+
+
+#chart-container {
+    width: 60%;
+    padding-top: 12%;
 }
 #palmTree {
     height: 30px;
@@ -204,6 +248,7 @@ i {
     align-content: center;
     text-align: center;
     width: 100%;
+    padding-top: 5%;
 }
 
 #shirtInfo {
