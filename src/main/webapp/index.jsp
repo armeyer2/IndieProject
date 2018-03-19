@@ -41,7 +41,11 @@
 <div class="container-fluid">
     <div class="jumbotron" >
         <img id="jumbotronImage" src="img/winter forest png.png" alt="winter forest">
-        <a id="scrollButton" href="#doubleShirt" class="btn btn-circle js-scroll-trigger">
+        <img id="mobileJumbotronImage" src="img/mobile winter forest.png" alt="winter forest">
+        <a id="scrollButton" href="#merch" class="btn btn-circle js-scroll-trigger">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
+        <a id="mobileScrollButton" href="#merch" class="btn btn-circle js-scroll-trigger">
             <i class="fa fa-angle-double-down animated"></i>
         </a>
     </div>
@@ -49,8 +53,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">February</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">March</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fa fa-bars"></i>
@@ -58,13 +63,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul id="navbarLinks"class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#doubleShirt">Products</a>
+                    <a class="nav-link js-scroll-trigger" href="#merch">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" id="galleryButton" href="..\gallery.html">Gallery</a>
+                    <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#overlay" id="signUp">Sign In</a>
                 </li>
 
             </ul>
@@ -72,29 +80,108 @@
     </div>
 </nav>
 
+<div id="overlay">
+  <div id="text">
+      <form action="j_security_check" method="POST">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" name="firstName" id="firstName">
+          </div>
+          <div class="form-group">
+            <label for="email">Username:</label>
+            <input type="text" name="j_username" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="j_password" class="form-control" id="pwd">
+          </div>
+          <div class="checkbx">
+            <label><input type="checkbox"> Remember me</label>
+          </div>
+          <button type="submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
+          <button type="button" id="signInCancel" class="btn btn-default">Cancel</button>
+          <p id="warningMessages"></p>
+        </form>
+  </div>
+</div>
+
 
 
 
 
 <section id="merch" class="content-section">
     <div class="container-fluid">
+
         <div class="row">
-            <div id="doubleShirt" class="col-md-12 text-center">
+            <div id="infoMerch" class="col-md-4">
+                <div id="infoMerchText" >
+                    <p id="inspirationText">This months line-up is inspired by the lush forests of Yellowstone National Park.</p>
+                    <a id="scrollButtonProduct" href="#chart-container" class="btn btn-basic js-scroll-trigger">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+
+
+            </div>
+            <div id="doubleShirt" class="col-md-8 text-center col-xs-12">
 
                 <img src="img/winter forest line up cartoons2.png" alt="Double Shirt">
-                <a id="scrollButtonProduct" href="#chart-container" class="btn btn-circle js-scroll-trigger">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </div>
-        </div>
-        <div id="chart-container" class="container-fluid">
-            <canvas id="myChart" ></canvas>
-            <div id="my_div" class="hide">
-                <h2 id="priceText">Crewneck $29.99 - Long Sleeve $24.99</h2>
-                <h2 class="phoneText">Crewneck $29.99</h2>
+
             </div>
 
         </div>
+    </div>
+</section>
+
+<div id="priceOverlay">
+    <div id="priceOverlayText">
+
+        <h2 id="priceText">Crewneck $23.99 - Long Sleeve $19.99</h2>
+        <h2 class="phoneText">Crewneck $23.99</h2>
+        <h2 class="phoneText">Long Sleeve $19.99</h2>
+        <p class="paragraph">(Regular Price: Crewneck $29.99 - Long Sleeve $24.99)</p>
+        <div id="info">
+            <p class="paragraph">This months line-up is inspired by the lush forests of Yellowstone National Park.</p>
+        </div>
+        <div class="col-xs-6" id="formPurchaseArea">
+            <button type="button" id="purchase" class="btn reminder" name="purchaseButton">Purchase</button>
+
+        </div>
+        <div class="col-xs-6" id="formArea">
+            <button type="button" id="reminder" class="btn reminder" name="button">Reminder?</button>
+
+        </div>
+        <button type="button" id="purchaseCancel" class="btn btn-default">Cancel</button>
+        <div id="social" class="row">
+            <div class="col-xs-4 mx-auto">
+                <ul class="list-inline banner-social-buttons">
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/" class="btn btn-default btn-lg">
+                            <i class="fa fa-twitter fa-fw"></i>
+                            <span class="network-name">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/" class="btn btn-default btn-lg">
+                            <i class="fa fa-google-plus fa-fw"></i>
+                            <span class="network-name">Google+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<section id="priceSection" class="content-section">
+    <div class="container-fluid">
+        <div id="chart-container" class="container-fluid">
+            <canvas id="myChart"></canvas>
+        </div>
+        <button id="priceOverlayButton" type="button" class="btn reminder" name="button">Purchase</button>
+        <!--
         <div id="price" class="row">
             <div id="shirtInfo" class="col-xs-12 text-center">
                 <h2 id="priceText">Crewneck $29.99 - Long Sleeve $24.99</h2>
@@ -130,8 +217,8 @@
                     </div>
                 </div>
             </div>
+        -->
         </div>
-
     </div>
 </section>
 
@@ -141,7 +228,7 @@
 <footer>
 
 
-    <div class="container text-center">
+    <div id="contactContainer" class="container text-center">
         <p id="contact" class="copyright"> Contact Support: frontend@gmail.com</p>
         <p class="copyright">Copyright &copy; Aaron Meyer</p>
 

@@ -1,5 +1,34 @@
 (function($) {
   "use strict"; // Start of use strict
+  $(document).ready(function () {
+
+
+      if($(window).width() >= 768) {
+          setTimeout(function(){
+              $("#scrollButton").fadeIn(1500);
+
+          }, 2000);
+
+      }
+      if($(window).width() <= 768) {
+          $("#mobileScrollButton").fadeIn(2500);
+          $("#scrollButton").click(function () {
+               $("#scrollButtonProduct").fadeIn(3000);
+               console.log("window is smaller than 768");
+
+          });
+      }
+  })
+
+//scrolls to the center of the image
+  jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                $(window).scrollLeft()) + "px");
+    return this;
+}
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
@@ -15,16 +44,44 @@
     }
   });
 
-  $('#overlay').click(function () {
+  $("#priceOverlayButton").click(function() {
+      $("#priceOverlay").fadeIn(750);
+  })
 
-      console.log("overlay slected");
-      if(document.getElementById("overlay").style.display == "block"){
-          document.getElementById("overlay").style.display = "none";
-          console.log("Taking down popup");
+  $('#scrollButton').click( function() {
+      $('merch').center();
+      console.log('scrollbuton clicked');
+  })
+
+
+  $("#signInSubmit").click(function () {
+
+      let firstName = $("#firstName").val();
+      if (firstName.length > 0) {
+          $("#overlay").fadeOut(750);
+          $("#signUp").html("Hello " + $("#firstName").val());
       } else {
-          document.getElementById("overlay").style.display = "block";
-          console.log("Putting up popup");
+          $("#warningMessages").html("*You must atleast enter a first name*");
       }
+
+
+
+  });
+
+
+  $("#signUp").click(function () {
+      $("#overlay").fadeIn(750);
+      $("#chart-container").fadeIn(750);
+  });
+
+
+  $("#signInCancel").click(function () {
+      $("#overlay").fadeOut(750);
+
+  });
+
+  $("#purchaseCancel").click(function () {
+      $("#priceOverlay").fadeOut(750);
 
   });
 
@@ -88,5 +145,3 @@
 
 
 })(jQuery); // End of use strict
-
-

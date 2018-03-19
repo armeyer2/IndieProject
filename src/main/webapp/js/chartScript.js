@@ -4,25 +4,32 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ["September","October","November", "December", "January", "February"],
         datasets: [{
-            label: 'Your Discount %',
-            data: [0, 5, 7, 9, 12, 15],
+            label: 'Crewneck Price',
+            data: [30, 28, 30, 28, 26, 24],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(81, 119, 158, 0.2)'
+
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgb(81, 119, 158, 1)'
+
             ],
-            borderWidth: 1
+            borderWidth: 1 ,
+            pointStyle: "circle"
+        },
+        {
+            label: 'Short-Sleeve Price',
+            data: [28, 24, 26, 24, 22, 18],
+            backgroundColor: [
+                'rgba(92, 152, 249, 0.2)'
+
+            ],
+            borderColor: [
+                'rgb(81, 119, 158, 1)'
+
+            ],
+            borderWidth: 1 ,
+            pointStyle: "circle"
         }]
     },
     options: {
@@ -30,8 +37,8 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     beginAtZero:true ,
-                    min: 0 ,
-                    max: 20 ,
+                    min: 15 ,
+                    max: 35 ,
                     stepSize: 5
                 }
             }]
@@ -39,3 +46,31 @@ var myChart = new Chart(ctx, {
     }
 });
 
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
