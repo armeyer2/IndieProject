@@ -7,15 +7,15 @@
   <login-config>
     <auth-method>FORM</auth-method>
     <form-login-config>
-      <form-login-page>/index.jsp</form-login-page>
+      <form-login-page>/WEB-INF/logInSuccess.jsp</form-login-page>
       <form-error-page>/WEB-INF/logInError.jsp</form-error-page>
     </form-login-config>
   </login-config>
   <!-- Protect everything within the "investing" directory. -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>investing</web-resource-name>
-      <url-pattern>/investing/*</url-pattern>
+      <web-resource-name>Gallery</web-resource-name>
+      <url-pattern>/gallery.html</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>registered-user</role-name>

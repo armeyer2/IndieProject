@@ -1007,25 +1007,5 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="233" name="user_id">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="250" parent="233" name="user_roles_user_id_fk">
-      <ColNames>user_id</ColNames>
-    </index>
-    <key id="251" parent="233" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_name</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="252" parent="233" name="user_roles_user_id_fk">
-      <ColNames>user_id</ColNames>
-      <RefSchemaName>indieproject</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
   </database-model>
 </dataSource>
