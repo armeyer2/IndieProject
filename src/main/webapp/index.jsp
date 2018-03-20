@@ -53,7 +53,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">March</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">March Test</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,6 +72,9 @@
                     <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">Gallery</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link " action="showOrders" id="admin">Admin</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="signUp">Sign In</a>
                 </li>
 
@@ -79,6 +82,8 @@
         </div>
     </div>
 </nav>
+
+
 
 <div id="overlay">
   <div id="text">
@@ -95,7 +100,7 @@
             <label for="pwd">Password:</label>
             <input type="password" name="j_password" class="form-control" id="pwd">
           </div>
-          <div class="checkbx">
+          <div class="checkbox">
             <label><input type="checkbox"> Remember me</label>
           </div>
           <button type="submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
@@ -104,7 +109,9 @@
         </form>
   </div>
 </div>
-
+<form action="showOrders" method="get">
+    <input type="submit" value="Submit">
+</form>
 
 
 
@@ -181,6 +188,7 @@
             <canvas id="myChart"></canvas>
         </div>
         <button id="priceOverlayButton" type="button" class="btn reminder" name="button">Purchase</button>
+
         <!--
         <div id="price" class="row">
             <div id="shirtInfo" class="col-xs-12 text-center">
