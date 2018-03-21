@@ -34,14 +34,6 @@ class UserDaoTest {
 
     }
 
-    /**
-     * Verifies gets all users successfully.
-     */
-    @Test
-    void getAllUsersSuccess() {
-        List<User> users = dao.getAll();
-        assertEquals(4, users.size());
-    }
 
 
     /**
@@ -140,6 +132,6 @@ class UserDaoTest {
     @Test
     void getByPropertyLikeSuccess() {
         List<User> users = dao.getByPropertyLike("lastName", "m");
-        assertEquals(4, users.size());
+        assertEquals(6, users.size());
     }
 }
