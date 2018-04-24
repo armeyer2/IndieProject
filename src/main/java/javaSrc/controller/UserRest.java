@@ -9,8 +9,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * This is the API class that user the HTMLImageParser
- * to return a valid json that holds searchTerm and a link to the image
+ * This returns the user info for the chart
  */
 @Path("/users")
 public class UserRest {
