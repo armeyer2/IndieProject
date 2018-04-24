@@ -7,6 +7,7 @@ package javaSrc.service;
         import javax.ws.rs.core.Response;
         import java.io.IOException;
         import java.util.*;
+        import javaSrc.persistence.*;
 
 /**
  * This returns the user info for the chart
@@ -19,6 +20,7 @@ public class UserRest {
     @Produces("application/json")
     public Response getImages(@PathParam("param") String msg) throws IOException {
 
+        //UserDOA user = new UserDOA();
 
         return Response.status(200).entity("test").build();
 
