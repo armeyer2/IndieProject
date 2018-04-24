@@ -53,7 +53,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">March Test</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">April</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
