@@ -53,7 +53,8 @@ class UserDaoTest {
     void insertWithOrderSuccess() {
 
         String orderName = "Order 1";
-        User newUser = new User("Fred", "Flintstone", "fflintstone", 1967);
+        LocalDate date = LocalDate.of(1998,02,22);
+        User newUser = new User("Fred", "Flintstone", "fflintstone", date);
         Order order = new Order(orderName, newUser);
         newUser.addOrder(order);
         int id = dao.insert(newUser);
@@ -64,9 +65,6 @@ class UserDaoTest {
         assertEquals(1, insertedUser.getOrders().size());
 
         dao.delete(newUser);
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
     }
 
     /**
@@ -74,8 +72,9 @@ class UserDaoTest {
      */
     @Test
     void insertSuccess() {
+        LocalDate date = LocalDate.of(1998,02,22);
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", 1986);
+        User newUser = new User("Fred", "Flintstone", "fflintstone", date);
         int id = dao.insert(newUser);
         assertNotEquals(0, id);
         User insertedUser = dao.getById(id);
@@ -92,7 +91,8 @@ class UserDaoTest {
      */
     @Test
     void deleteSuccess() {
-        User newUser = new User("Fred", "Flintstone", "fflintstone", 1986);
+        LocalDate date = LocalDate.of(1998,02,22);
+        User newUser = new User("Fred", "Flintstone", "fflintstone", date);
         int id = dao.insert(newUser);
         assertNotEquals(0, id);
         User insertedUser = dao.getById(id);
