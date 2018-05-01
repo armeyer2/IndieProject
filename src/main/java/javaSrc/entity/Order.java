@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javaSrc.entity.User;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * The type Order.
@@ -22,6 +23,9 @@ public class Order {
 
     @Column(name = "user_id")
     private int userId;
+
+    @Column(name = "date")
+    private Date date;
 
 
     @ManyToOne
@@ -63,6 +67,10 @@ public class Order {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    public Date getOrderDate() { return date; }
+
+    public void setOrderDate(Date date) { this.date = date; }
 
     /**
      * Gets id.

@@ -11,6 +11,8 @@ package javaSrc.service;
         import javaSrc.entity.Order;
         import javaSrc.entity.User;
         import javaSrc.persistence.*;
+        import org.apache.logging.log4j.LogManager;
+        import org.apache.logging.log4j.Logger;
 
 /**
  * This returns the user info for the chart
@@ -18,13 +20,17 @@ package javaSrc.service;
 @Path("/users")
 public class UserRest {
 
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     @GET
     @Path("/{param}")
     @Produces("application/json")
     public Response getUser(@PathParam("param") String id) throws IOException {
 
-        GenericDao orderDao      = new GenericDao(Order.class);
-        List userOrders = orderDao.getByPropertyEqual("user_id", id);
+        //GenericDao orderDao      = new GenericDao(Order.class);
+        OrderDOA orderDOA = new OrderDOA();
+        List userOrders = orderDOA.getByPropertyEqual("user_id", id);
+        logger.info(userOrders);
 
         return Response.status(200).entity(userOrders).build();
 
