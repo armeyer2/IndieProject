@@ -7,6 +7,9 @@ package javaSrc.service;
         import javax.ws.rs.core.Response;
         import java.io.IOException;
         import java.util.*;
+
+        import javaSrc.entity.Order;
+        import javaSrc.entity.User;
         import javaSrc.persistence.*;
 
 /**
@@ -18,11 +21,12 @@ public class UserRest {
     @GET
     @Path("/{param}")
     @Produces("application/json")
-    public Response getImages(@PathParam("param") String msg) throws IOException {
+    public Response getUser(@PathParam("param") String id) throws IOException {
 
-        //UserDOA user = new UserDOA();
+        GenericDao orderDao      = new GenericDao(Order.class);
+        List userOrders = orderDao.getByPropertyEqual("user_id", id);
 
-        return Response.status(200).entity("test").build();
+        return Response.status(200).entity(userOrders).build();
 
     }
 }
