@@ -2,48 +2,54 @@ package javaSrc.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
-import javaSrc.entity.Order;
 
 /**
  * A class to represent a user.
  *
- * @author armeyer2
+ * @author pwaite
  */
+@XmlRootElement(name = "user")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native", strategy = "native")
-    private int id;
-
     @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "user_name", unique = true, nullable = false)
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "date_of_birth")
-    private int dateOfBirth;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int id;
 
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>();
+
+
 
     /**
      * Instantiates a new User.
      */
     public User() {
-
     }
 
     /**
@@ -54,7 +60,7 @@ public class User {
      * @param userName    the user name
      * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int dateOfBirth) {
+    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -139,7 +145,7 @@ public class User {
      *
      * @return the date of birth
      */
-    public int getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -148,10 +154,19 @@ public class User {
      *
      * @param dateOfBirth the date of birth
      */
-    public void setDateOfBirth(int dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    /**
+     * Gets age.
+     *
+     * @return the age
+     */
+    public int getAge() {
+
+        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+    }
 
     /**
      * Gets orders.
@@ -171,25 +186,29 @@ public class User {
         this.orders = orders;
     }
 
+
     /**
-     * Add a order.
+     * Add order.
      *
-     * @param order the order to add
+     * @param order the order
      */
     public void addOrder(Order order) {
-        orders.add( order );
-        order.setUser( this );
+        orders.add(order);
+        order.setUser(this);
     }
 
     /**
-     * Remove a order.
+     * Remove order.
      *
-     * @param order the order to remove
+     * @param order the order
      */
     public void removeOrder(Order order) {
-        orders.remove( order );
-        order.setUser( null );
+        orders.remove(order);
+        order.setUser(null);
     }
+
+
+
 
     @Override
     public String toString() {
@@ -199,7 +218,25 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
-                // ", orders=" + getorders() +
+                ", age=" + getAge() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(dateOfBirth, user.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(firstName, lastName, userName, id, dateOfBirth);
     }
 }
