@@ -21,15 +21,12 @@ public class Order {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "user_id")
-    private int userId;
 
     @Column(name = "date")
     private Date date;
 
 
     @ManyToOne
-
     private User user;
 
     /**
@@ -49,24 +46,6 @@ public class Order {
         this.user = user;
     }
 
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getUserId() {
-        return userId;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param userId the id
-     */
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public Date getOrderDate() { return date; }
 

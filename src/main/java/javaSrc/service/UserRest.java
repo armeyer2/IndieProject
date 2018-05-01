@@ -29,7 +29,7 @@ public class UserRest {
 
         //GenericDao orderDao      = new GenericDao(Order.class);
         OrderDOA orderDOA = new OrderDOA();
-        List userOrders = orderDOA.getByPropertyEqual("user_id", id);
+        List<Order> userOrders = orderDOA.getByPropertyEqual("user_id", "1");
         logger.info(userOrders);
 
         return Response.status(200).entity(userOrders).build();
