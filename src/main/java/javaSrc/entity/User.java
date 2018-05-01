@@ -21,6 +21,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
+    @Column(name="id")
     private int id;
 
     @Column(name = "first_name")
@@ -34,7 +35,6 @@ public class User {
 
     @Column(name = "date_of_birth")
     private int dateOfBirth;
-
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>();

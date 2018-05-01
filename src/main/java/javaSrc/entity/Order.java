@@ -1,32 +1,36 @@
 package javaSrc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 import javaSrc.entity.User;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.sql.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlTransient;
+import java.util.Objects;
 
-/**
- * The type Order.
- */
 @Entity(name = "Order")
 @Table(name = "orders")
+@XmlAccessorType( XmlAccessType.FIELD)
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
+    @Column(name="order_id")
     private int id;
 
-    @Column(name = "description")
     private String description;
 
-
-    @Column(name = "date")
-    private Date date;
-
-
+    @XmlTransient
+    @JsonIgnore
     @ManyToOne
+    @JoinColumn(name = "user_id",
+            foreignKey = @ForeignKey(name = "orders_user_id_fk")
+    )
     private User user;
 
     /**
@@ -38,18 +42,13 @@ public class Order {
     /**
      * Instantiates a new Order.
      *
-     * @param description the order description
-     * @param user the user
+     * @param description the description
+     * @param user        the user
      */
-    public Order(String description, User user) {
-        this.description = description;
+    public Order(String description, User user ) {
         this.user = user;
+        this.description = description;
     }
-
-
-    public Date getOrderDate() { return date; }
-
-    public void setOrderDate(Date date) { this.date = date; }
 
     /**
      * Gets id.
@@ -103,5 +102,28 @@ public class Order {
      */
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return id == order.id &&
+                Objects.equals(description, order.description);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, description);
     }
 }

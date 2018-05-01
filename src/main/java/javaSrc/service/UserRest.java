@@ -8,6 +8,8 @@ package javaSrc.service;
         import java.io.IOException;
         import java.util.*;
 
+        import com.fasterxml.jackson.databind.ObjectMapper;
+        import com.fasterxml.jackson.databind.SerializationFeature;
         import javaSrc.entity.Order;
         import javaSrc.entity.User;
         import javaSrc.persistence.*;
@@ -29,10 +31,13 @@ public class UserRest {
 
         //GenericDao orderDao      = new GenericDao(Order.class);
         OrderDOA orderDOA = new OrderDOA();
-        List<Order> userOrders = orderDOA.getByPropertyEqual("user_id", "1");
-        logger.info(userOrders);
 
-        return Response.status(200).entity(userOrders).build();
+        List<Order> userOrders = (List<Order>) orderDOA.getById(1);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        String arrayToJson = objectMapper.writeValueAsString(userOrders);
+
+        return Response.status(200).entity(arrayToJson).build();
 
     }
 }
