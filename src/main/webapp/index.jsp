@@ -85,6 +85,9 @@
                     <a class="nav-link " href="/signUp.jsp" id="signUp">Sign Up</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link " href="/signIn.jsp" id="signIn">Sign In</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
                 </li>
 
@@ -186,54 +189,6 @@
 
 </div>
 
-
-<section id="priceSection" class="content-section">
-    <div class="container-fluid">
-        <div id="chart-container" class="container-fluid">
-            <canvas id="myChart"></canvas>
-        </div>
-        <button id="priceOverlayButton" type="button" class="btn reminder" name="button">Purchase</button>
-
-        <!--
-        <div id="price" class="row">
-            <div id="shirtInfo" class="col-xs-12 text-center">
-                <h2 id="priceText">Crewneck $29.99 - Long Sleeve $24.99</h2>
-                <h2 class="phoneText">Crewneck $29.99</h2>
-                <h2 class="phoneText">Long Sleeve $24.99</h2>
-                <p class="paragraph">(includes sticker)</p>
-                <div id="info">
-                    <p class="paragraph">This months line-up is inspired by the lush forests of Yellowstone National Park.</p>
-                </div>
-                <div class="col-xs-6" id="formPurchaseArea">
-                    <button type="button" id="purchase" class="btn reminder" name="purchaseButton">Purchase</button>
-
-                </div>
-                <div class="col-xs-6" id="formArea">
-                    <button type="button" id="reminder" class="btn reminder" name="button">Reminder for the next drop?</button>
-                </div>
-                <div id="social" class="row">
-                    <div class="col-xs-4 mx-auto">
-                        <ul class="list-inline banner-social-buttons">
-                            <li class="list-inline-item">
-                                <a href="https://twitter.com/" class="btn btn-default btn-lg">
-                                    <i class="fa fa-twitter fa-fw"></i>
-                                    <span class="network-name">Twitter</span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://plus.google.com/" class="btn btn-default btn-lg">
-                                    <i class="fa fa-google-plus fa-fw"></i>
-                                    <span class="network-name">Google+</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        -->
-        </div>
-    </div>
-</section>
 
 
 

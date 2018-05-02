@@ -68,6 +68,10 @@
 
   });
 
+  $("#accountInfo").click(function () {
+     $("#overlay").fadeIn(750);
+  });
+
 
 
   $("#signInCancel").click(function () {
