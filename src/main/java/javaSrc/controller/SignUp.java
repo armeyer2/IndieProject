@@ -47,10 +47,9 @@ public class SignUp extends HttpServlet {
         int birthYear = Integer.parseInt(birthYearString);
 
         UserDOA userDOA = new UserDOA();
-        User newUser = new User("Fred", "Flintstone", "fflintstone", 1986, "testPass");
+        User newUser = new User(firstName, lastName, username, birthYear, password);
         Role role = new Role(newUser, "registered-user", newUser.getUserName());
 
-        logger.info(newUser.getFirstName());
 
         int id = userDOA.insert(newUser);
 

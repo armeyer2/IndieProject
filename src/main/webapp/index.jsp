@@ -87,9 +87,7 @@
                 <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">${user.firstName}</a>
-                </li>
+
             </ul>
         </div>
     </div>
