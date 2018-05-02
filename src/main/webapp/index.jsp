@@ -106,7 +106,7 @@
           <button type="submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
           <button type="button" id="signInCancel" class="btn btn-default">Cancel</button>
           <p id="warningMessages"></p>
-        </form>
+      </form>
   </div>
 </div>
 <form action="showOrders" method="get">
