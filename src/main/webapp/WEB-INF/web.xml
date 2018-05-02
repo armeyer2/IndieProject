@@ -14,8 +14,8 @@
   <!-- Protect everything within the "investing" directory. -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>gallery</web-resource-name>
-      <url-pattern>/gallery.html</url-pattern>
+      <web-resource-name>adminPage</web-resource-name>
+      <url-pattern>/admin.jsp</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <role-name>registered-user</role-name>

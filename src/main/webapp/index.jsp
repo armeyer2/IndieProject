@@ -72,7 +72,7 @@
                     <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " action="showOrders" id="admin">Admin</a>
+                    <a class="nav-link " href="showOrders" id="admin">Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="signUp">Sign In</a>
