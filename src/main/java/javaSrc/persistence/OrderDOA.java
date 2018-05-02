@@ -32,6 +32,7 @@ public class OrderDOA {
         Root<Order> root = query.from(Order.class);
         List<Order> orders = session.createQuery(query).getResultList();
         session.close();
+        logger.debug(orders);
         return orders;
     }
 
