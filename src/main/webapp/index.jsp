@@ -1,3 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: Aaron
+  Date: 5/2/2018
+  Time: 12:08 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,16 +77,19 @@
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">Gallery</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link " href="showOrders" id="admin">Admin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#overlay" id="signUp">Sign In</a>
+                    <a class="nav-link " href="/signUp.jsp" id="signUp">Sign Up</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" id="galleryButton" href="gallery.html">${user.firstName}</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -87,28 +99,23 @@
 
 <div id="overlay">
   <div id="text">
-      <form action="j_security_check" method="POST">
+      <form action="/userInfo" method="GET">
           <div class="form-group">
-            <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" name="firstName" id="firstName">
-          </div>
-          <div class="form-group">
-            <label for="email">Username:</label>
-            <input type="text" name="j_username" class="form-control" id="email">
+            <label for="username">Username:</label>
+            <input type="text" name="username" class="form-control" id="username">
           </div>
           <div class="form-group">
             <label for="pwd">Password:</label>
-            <input type="password" name="j_password" class="form-control" id="pwd">
+            <input type="password" name="pwd" class="form-control" id="pwd">
           </div>
-          <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
-          </div>
-          <button type="submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
+          <button type="Submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
           <button type="button" id="signInCancel" class="btn btn-default">Cancel</button>
           <p id="warningMessages"></p>
       </form>
   </div>
 </div>
+
+
 <form action="showOrders" method="get">
     <input type="submit" value="Submit">
 </form>

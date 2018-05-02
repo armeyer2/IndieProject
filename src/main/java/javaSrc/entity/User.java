@@ -35,6 +35,9 @@ public class User {
     @Column(name = "date_of_birth")
     private int dateOfBirth;
 
+    @Column(name = "password")
+    private String password;
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<>();
@@ -54,11 +57,13 @@ public class User {
      * @param userName    the user name
      * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int dateOfBirth) {
+    public User(String firstName, String lastName, String userName, int dateOfBirth, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.dateOfBirth = dateOfBirth;
+        this.userName = userName;
+
     }
 
     /**
@@ -151,6 +156,18 @@ public class User {
     public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    /**
+     * Gets the password
+     * @return  the password
+     */
+    public String getPassword() { return password; }
+
+    /**
+     * Set the password
+     * @param password
+     */
+    public void setPassword(String password) { this.password = password; }
 
 
     /**

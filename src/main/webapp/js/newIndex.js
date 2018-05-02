@@ -69,15 +69,9 @@
   });
 
 
-  $("#signUp").click(function () {
-      $("#overlay").fadeIn(750);
-      $("#chart-container").fadeIn(750);
-  });
-
 
   $("#signInCancel").click(function () {
       $("#overlay").fadeOut(750);
-
   });
 
   $("#purchaseCancel").click(function () {

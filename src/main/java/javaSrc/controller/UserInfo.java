@@ -16,6 +16,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javaSrc.persistence.*;
 
 
 /**
@@ -24,19 +25,19 @@ import javax.servlet.annotation.*;
  */
 
 @WebServlet(
-        urlPatterns = {"/showOrders"}
+        urlPatterns = {"/userInfo"}
 )
 
-public class ShowOrders extends HttpServlet {
+public class UserInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext context = req.getServletContext();
+        String username = req.getParameter("username");
+        UserDOA userDOA = new UserDOA();
 
-        OrderDOA orders = new OrderDOA();
-        orders.getAllOrders();
-        req.setAttribute("orders", orders.getAllOrders());
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/orders.jsp");
+        req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/accountInfo.jsp");
         dispatcher.forward(req, resp);
     }
 }

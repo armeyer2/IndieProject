@@ -23,7 +23,11 @@
     </auth-constraint>
   </security-constraint>
 
+
   <security-role>
     <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>registered-user</role-name>
   </security-role>
 </web-app>
