@@ -8,16 +8,13 @@
     Map<Object,Object> map = null;
     List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
 
-    map = new HashMap<Object,Object>(); map.put("label", "FY07"); map.put("y", 188); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY08"); map.put("y", 213); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY09"); map.put("y", 213); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY10"); map.put("y", 219); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY11"); map.put("y", 207); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY12"); map.put("y", 167); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY13"); map.put("y", 136); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY14"); map.put("y", 152); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY15"); map.put("y", 129); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "FY16"); map.put("y", 155); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "November"); map.put("y", 188); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "December"); map.put("y", 213); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "January"); map.put("y", 213); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "February"); map.put("y", 219); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "March"); map.put("y", 207); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "April"); map.put("y", 167); list.add(map);
+    map = new HashMap<Object,Object>(); map.put("label", "May"); map.put("y", 136); list.add(map);
 
     String dataPoints = gsonObj.toJson(list);
 %>
@@ -32,17 +29,17 @@
             var chart = new CanvasJS.Chart("chartContainer", {
                 theme: "light2",
                 title: {
-                    text: "Iron Ore Production in India"
+                    text: "Your Dynamic Price"
                 },
                 axisX: {
-                    title: "Fiscal Year"
+                    title: "Month"
                 },
                 axisY: {
-                    title: "Production ( in million tonnes )"
+                    title: "Price"
                 },
                 data: [{
                     type: "line",
-                    yValueFormatString: "#,##0mn tonnes",
+                    yValueFormatString: "#,$##0 ",
                     dataPoints : <%out.print(dataPoints);%>
                 }]
             });
