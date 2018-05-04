@@ -79,7 +79,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="showOrders" id="admin">Admin</a>
+                    <a class="nav-link " href="userManager" id="admin">Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
