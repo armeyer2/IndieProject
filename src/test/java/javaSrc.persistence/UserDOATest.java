@@ -54,7 +54,7 @@ class UserDaoTest {
 
         String orderName = "Order 1";
         User newUser = new User("Fred", "Flintstone", "fflintstone", 1986, "testPass");
-        Order order = new Order(orderName, newUser);
+        Order order = new Order(orderName, newUser, "February");
         newUser.addOrder(order);
         int id = dao.insert(newUser);
         assertNotEquals(0, id);

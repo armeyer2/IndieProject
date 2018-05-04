@@ -40,12 +40,12 @@ public class ChartPage extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = req.getServletContext();
-        logger.info(req.getRemoteUser());
+        //logger.info(req.getRemoteUser());
 
         UserDOA userDOA = new UserDOA();
         List<User> user = userDOA.getByPropertyEqual("userName", req.getRemoteUser());
 
-        user.get(0).getOrders();
+        logger.info(user.get(0).getOrders());
 
         Gson gsonObj = new Gson();
         Map<Object,Object> map = null;

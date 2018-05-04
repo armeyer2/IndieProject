@@ -82,7 +82,7 @@ class OrderDaoTest {
         User user = userDao.getById(1);
         String orderDescription = "February Large Test-Tshirt";
 
-        Order newOrder = new Order(orderDescription, user);
+        Order newOrder = new Order(orderDescription, user, "February");
         user.addOrder(newOrder);
         int id = dao.insert(newOrder);
         assertNotEquals(0, id);
@@ -107,7 +107,7 @@ class OrderDaoTest {
         User user = userDao.getById(1);
         String orderDescription = "February Large Test-Tshirt Delete";
 
-        Order newOrder = new Order(orderDescription, user);
+        Order newOrder = new Order(orderDescription, user, "February");
         user.addOrder(newOrder);
 
         dao.delete(newOrder);
