@@ -90,6 +90,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="name">${firstName}</a>
+                </li>
 
             </ul>
         </div>
@@ -130,8 +133,8 @@
         <div class="row">
             <div id="infoMerch" class="col-md-4">
                 <div id="infoMerchText" >
-                    <p id="inspirationText">This months line-up is inspired by the lush forests of Yellowstone National Park.</p>
-                    <a id="scrollButtonProduct" href="#chart-container" class="btn btn-basic js-scroll-trigger">
+                    <p id="inspirationText">This months line-up is inspired by the lush forests of Yellowstone National Park. Click to see your dynamic price</p>
+                    <a id="scrollButtonProduct" href="/chartPage" class="btn btn-basic js-scroll-trigger">
                         <i class="fa fa-angle-double-down animated"></i>
                     </a>
                 </div>

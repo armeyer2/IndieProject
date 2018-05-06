@@ -12,6 +12,7 @@ package javaSrc.service;
         import com.fasterxml.jackson.databind.SerializationFeature;
         import com.google.gson.Gson;
         import javaSrc.entity.Order;
+        import javaSrc.entity.User;
         import javaSrc.persistence.*;
         import org.apache.logging.log4j.LogManager;
         import org.apache.logging.log4j.Logger;
@@ -27,16 +28,18 @@ public class UserRest {
     @GET
     @Path("/{param}")
     @Produces("application/json")
-    public Response getImages(@PathParam("param") int msg) throws IOException {
+    public Response getUserOrders(@PathParam("param") String msg) throws IOException {
 
-        OrderDOA orderDoa = new OrderDOA();
-        List<Order> orders = orderDoa.getAllOrders();
-        ObjectMapper objectMapper = new ObjectMapper();
+        UserDOA users = new UserDOA();
+        List<User> user = users.getByPropertyEqual("userName", msg);
+        Set<Order> orders = user.get(0).getOrders();
+
+        /*ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        String arrayToJson = objectMapper.writeValueAsString(orders);
-        logger.info(arrayToJson);
+        String arrayToJson = objectMapper.writeValueAsString(orders);*/
 
-        return Response.status(200).entity("test").build();
+
+        return Response.status(200).entity(orders).build();
 
 
     }

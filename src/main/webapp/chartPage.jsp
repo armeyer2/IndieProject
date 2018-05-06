@@ -40,7 +40,7 @@
                 data: [{
                     type: "line",
                     yValueFormatString: "#,$##0 ",
-                    dataPoints : <%out.print(dataPoints);%>
+                    dataPoints : ${dataPoints}
                 }]
             });
             chart.render();

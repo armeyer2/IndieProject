@@ -18,6 +18,20 @@ Time Log:
 
 	Week 9: Got my authentification figured out and connected to the mysql database successfully.
 
+	Week 10: Added log in feature to get to admin page.
+
+	Week 11: Added user sign up page, added user roles including admin and registered user.
+
+	Week 12: Reworked the front end of the site. Migrated the chart page off the main screen.
+
+	Week 13: Started working on the dynamic chart generation.
+
+	Week 14: Started creating the my Rest service to get user orders for the dynamic chart.
+
+	Week 15: Added a Admin page to delete users. Now it is fully CRUD implemented.
+
+	Week 16: Working on all unit tests and rebuilding some features to look better.
+
 Plan:
 
 	Week 1-3: Get the visual and front end basic portion completed and get the page ready for testing with the services I will be adding.

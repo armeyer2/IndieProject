@@ -40,26 +40,26 @@ public class ChartPage extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext context = req.getServletContext();
-        //logger.info(req.getRemoteUser());
 
         UserDOA userDOA = new UserDOA();
         List<User> user = userDOA.getByPropertyEqual("userName", req.getRemoteUser());
 
-        logger.info(user.get(0).getOrders());
 
         Gson gsonObj = new Gson();
         Map<Object,Object> map = null;
         List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
 
-        map = new HashMap<Object,Object>(); map.put("label", "November"); map.put("y", 188); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "December"); map.put("y", 213); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "January"); map.put("y", 213); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "February"); map.put("y", 219); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "March"); map.put("y", 207); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "April"); map.put("y", 167); list.add(map);
-        map = new HashMap<Object,Object>(); map.put("label", "May"); map.put("y", 136); list.add(map);
+        Set<Order> orders = user.get(0).getOrders();
+        int dynamicPrice = 40;
+
+        for (Order order : orders) {
+            map = new HashMap<Object,Object>(); map.put("label", order.getMonth()); map.put("y", dynamicPrice); list.add(map);
+            dynamicPrice = dynamicPrice - 3;
+        }
 
         String dataPoints = gsonObj.toJson(list);
+        req.setAttribute("dataPoints", dataPoints);
+        //<%out.print(dataPoints);%>
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/chartPage.jsp");
         dispatcher.forward(req, resp);
