@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.*;
 import javaSrc.entity.*;
 
@@ -54,8 +56,38 @@ public class ChartPage extends HttpServlet {
 
         for (Order order : orders) {
             map = new HashMap<Object,Object>(); map.put("label", order.getMonth()); map.put("y", dynamicPrice); list.add(map);
-            dynamicPrice = dynamicPrice - 3;
+            if (order.getMonth().equals("April")) {
+                dynamicPrice = dynamicPrice - 5;
+                req.setAttribute("price", dynamicPrice);
+            }
+            if (order.getMonth().equals("March")) {
+                dynamicPrice = dynamicPrice - 3;
+            } else {
+                dynamicPrice = dynamicPrice - 2;
+            }
+
         }
+
+
+
+        /*String userName = user.get(0).getUserName();
+        URL url = new URL("http://18.219.196.205:8080/IndieProject/service/users/" + userName);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+
+        int status = con.getResponseCode();
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer content = new StringBuffer();
+        while ((inputLine = in.readLine()) != null) {
+            content.append(inputLine);
+            logger.info(inputLine);
+        }
+        in.close();
+        con.disconnect();*/
+
+
 
         String dataPoints = gsonObj.toJson(list);
         req.setAttribute("dataPoints", dataPoints);

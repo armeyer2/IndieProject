@@ -50,6 +50,7 @@ public class UserDOA {
         return id;
     }
 
+
     /**
      * Delete a user
      * @param user User to be deleted

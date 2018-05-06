@@ -3,26 +3,25 @@
 <%@ page import="com.google.gson.Gson"%>
 <%@ page import="com.google.gson.JsonObject"%>
 
-<%
-    Gson gsonObj = new Gson();
-    Map<Object,Object> map = null;
-    List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
-
-    map = new HashMap<Object,Object>(); map.put("label", "November"); map.put("y", 188); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "December"); map.put("y", 213); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "January"); map.put("y", 213); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "February"); map.put("y", 219); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "March"); map.put("y", 207); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "April"); map.put("y", 167); list.add(map);
-    map = new HashMap<Object,Object>(); map.put("label", "May"); map.put("y", 136); list.add(map);
-
-    String dataPoints = gsonObj.toJson(list);
-%>
 
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Front-End</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/formPage.css">
     <script type="text/javascript">
         window.onload = function() {
 
@@ -50,6 +49,30 @@
 </head>
 <body>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+<div>Your Price: ${price}</div>
+
+<div id="signUpOverlay">
+    <div id="signUptext">
+        <form action="/orderPage" method="POST">
+            <select name="itemType">
+                <option value="May long sleeve">May Long Sleeve</option>
+                <optgroup value="May short sleeve">May Short Sleeve</optgroup>
+            </select>
+            <select name="amount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+    </div>
+</div>
+
+<p>${confirmation}</p>
+
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

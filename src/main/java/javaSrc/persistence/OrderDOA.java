@@ -32,7 +32,7 @@ public class OrderDOA {
         Root<Order> root = query.from(Order.class);
         List<Order> orders = session.createQuery(query).getResultList();
         session.close();
-        logger.debug(orders);
+        //logger.debug(orders);
         return orders;
     }
 
@@ -100,7 +100,7 @@ public class OrderDOA {
     public List<Order> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for order with " + propertyName + " = " + value);
+        //logger.debug("Searching for order with " + propertyName + " = " + value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Order> query = builder.createQuery( Order.class );
@@ -123,7 +123,7 @@ public class OrderDOA {
     public List<Order> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for order with {} = {}",  propertyName, value);
+        //logger.debug("Searching for order with {} = {}",  propertyName, value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Order> query = builder.createQuery( Order.class );

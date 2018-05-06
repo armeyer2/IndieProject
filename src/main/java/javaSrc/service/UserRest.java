@@ -39,7 +39,7 @@ public class UserRest {
         String arrayToJson = objectMapper.writeValueAsString(orders);*/
 
 
-        return Response.status(200).entity(orders).build();
+        return Response.status(200).entity(user.get(0).getUserName()).build();
 
 
     }
