@@ -12,6 +12,7 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Test;
 import org.json.*;
+import javaSrc.geocoder.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -150,39 +151,15 @@ class OrderDaoTest {
                 client.target("https://maps.googleapis.com/maps/api/geocode/json?address=4500+maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
+        ObjectMapper mapper = new ObjectMapper();
+        Response results = mapper.readValue(response, Response.class);
+        ResultsItem result = results.getResults().get(0);
 
-        logger.info(response);
+        logger.info(result.getPlaceId());
         //logger.info(value1);
 
     }
 
-    @Test
-    void addressSuccessTester() throws IOException {
-        URL url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address=4500+maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
-        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.connect();
-        int responsecode = conn.getResponseCode();
-
-        String inline = null;
-
-        if(responsecode != 200) {
-            throw new RuntimeException("HttpResponseCode: "+responsecode);
-        } else {
-            Scanner sc = new Scanner(url.openStream());
-            while(sc.hasNext())
-            {
-                inline += sc.nextLine();
-            }
-
-            logger.info(inline);
-            sc.close();
-        }
-
-        JSONParser parser = new JSONParser();
-        //JSONObject s =  new JSONObject(inline);
-       // String placeId = jobj.get("place_id");
-    }
 
     /**
      * Verify successful update of order

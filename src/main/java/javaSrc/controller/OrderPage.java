@@ -74,7 +74,7 @@ public class OrderPage extends HttpServlet {
             if (returnId > 0) {
                 req.setAttribute("confirmation", "Your order has been placed!");
                 resp.sendRedirect("chartPage");
-                return;
+
             } else {
                 req.setAttribute("confirmation", "There has been an error");
             }

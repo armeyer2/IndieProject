@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="css/formPage.css">
 
-    <scipt src="js/validation"></scipt>
+    <script src="js/validation.js" type="application/javascript"></script>
     <script type="text/javascript">
         window.onload = function() {
 
@@ -91,7 +91,7 @@
     <div id="signUpOverlay">
         <div id="signUptext">
             Your Price: $${price}.00
-            <form action="/orderPage" method="POST" name="orderForm">
+            <form action="orderPage" method="POST" name="orderForm">
                 <select name="itemType">
                     <option value="May long sleeve">May Long Sleeve</option>
                     <optgroup value="May short sleeve">May Short Sleeve</optgroup>
