@@ -1,6 +1,10 @@
 #signUpOverlay {
     margin: 10%;
 }
+#userTable {
+    margin-left: auto;
+    margin-right: auto;
+}
 #palmTree {
     height: 30px;
     width: 30px;
@@ -12,8 +16,5 @@
     margin-top: 10%;
 }
 canvas {
-    margin: 10%;
-}
-.container-fluid {
-    margin: 10%;
+    margin-top: 3%;
 }

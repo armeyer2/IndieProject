@@ -1,19 +1,23 @@
 package javaSrc.persistence;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.boot.model.relational.Database;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Test;
+import org.json.*;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.*;
 
+import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,11 +32,14 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -134,15 +141,47 @@ class OrderDaoTest {
         assertEquals(0, orders.size());
     }
 
+
+
     @Test
-    void addressSuccess() {
+    void addressSuccess() throws IOException {
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target("https://maps.googleapis.com/maps/api/geocode/json?address=2222+lunde&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+                client.target("https://maps.googleapis.com/maps/api/geocode/json?address=4500+maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
 
         logger.info(response);
+        //logger.info(value1);
+
+    }
+
+    @Test
+    void addressSuccessTester() throws IOException {
+        URL url = new URL("https://maps.googleapis.com/maps/api/geocode/json?address=4500+maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.connect();
+        int responsecode = conn.getResponseCode();
+
+        String inline = null;
+
+        if(responsecode != 200) {
+            throw new RuntimeException("HttpResponseCode: "+responsecode);
+        } else {
+            Scanner sc = new Scanner(url.openStream());
+            while(sc.hasNext())
+            {
+                inline += sc.nextLine();
+            }
+
+            logger.info(inline);
+            sc.close();
+        }
+
+        JSONParser parser = new JSONParser();
+        //JSONObject s =  new JSONObject(inline);
+       // String placeId = jobj.get("place_id");
     }
 
     /**

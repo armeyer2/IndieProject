@@ -52,9 +52,7 @@
                 <li class="nav-item">
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="signIn.jsp" id="signIn">Sign In</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
                 </li>
