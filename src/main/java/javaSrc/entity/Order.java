@@ -1,7 +1,7 @@
-package entity;
+package javaSrc.entity;
 
 import org.hibernate.annotations.GenericGenerator;
-
+import javaSrc.entity.User;
 
 import javax.persistence.*;
 
@@ -17,7 +17,11 @@ public class Order {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "month")
+    private String month;
 
 
     @ManyToOne
@@ -35,10 +39,12 @@ public class Order {
      * @param description the order description
      * @param user the user
      */
-    public Order(String description, User user) {
+    public Order(String description, User user, String month) {
         this.description = description;
         this.user = user;
+        this.month = month;
     }
+
 
     /**
      * Gets id.
@@ -74,6 +80,24 @@ public class Order {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Gets month.
+     *
+     * @return the month
+     */
+    public String getMonth() {
+        return month;
+    }
+
+    /**
+     * Sets description.
+     *
+     * @param month the description
+     */
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     /**

@@ -1,4 +1,4 @@
-package entity;
+package javaSrc.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -7,11 +7,15 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
+<<<<<<< HEAD:src/main/Java/entity/User.java
 <<<<<<< HEAD
 
 import entity.Orders;
 =======
 >>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
+=======
+import javaSrc.entity.Order;
+>>>>>>> RollbackBranch:src/main/java/javaSrc/entity/User.java
 
 /**
  * A class to represent a user.
@@ -47,8 +51,15 @@ public class User {
 
 =======
     @Column(name = "date_of_birth")
+<<<<<<< HEAD:src/main/Java/entity/User.java
     private LocalDate dateOfBirth;
 >>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
+=======
+    private int dateOfBirth;
+
+    @Column(name = "password")
+    private String password;
+>>>>>>> RollbackBranch:src/main/java/javaSrc/entity/User.java
 
 
 <<<<<<< HEAD
@@ -77,12 +88,18 @@ public class User {
      * @param userName    the user name
      * @param dateOfBirth the date of birth
      */
+<<<<<<< HEAD:src/main/Java/entity/User.java
     public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
 >>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
+=======
+    public User(String firstName, String lastName, String userName, int dateOfBirth, String password) {
+>>>>>>> RollbackBranch:src/main/java/javaSrc/entity/User.java
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.dateOfBirth = dateOfBirth;
+        this.userName = userName;
+
     }
 
     /**
@@ -173,7 +190,7 @@ public class User {
      *
      * @return the date of birth
      */
-    public LocalDate getDateOfBirth() {
+    public int getDateOfBirth() {
         return dateOfBirth;
     }
 >>>>>>> 520b36ca107b1085ad81031b033b7ca21133a59e
@@ -183,19 +200,22 @@ public class User {
      *
      * @param dateOfBirth the date of birth
      */
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
     /**
-     * Gets age.
-     *
-     * @return the age
+     * Gets the password
+     * @return  the password
      */
-    public int getAge() {
+    public String getPassword() { return password; }
 
-        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
-    }
+    /**
+     * Set the password
+     * @param password
+     */
+    public void setPassword(String password) { this.password = password; }
+
 
     /**
      * Gets orders.
@@ -243,7 +263,6 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + getAge() +
                 // ", orders=" + getorders() +
                 '}';
     }

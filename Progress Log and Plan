@@ -10,6 +10,28 @@ Time Log:
 
 	Week 5: Added JQuery to the site and got most of the single page application done. Want to add sign in page next week.
 
+	Week 6: Implemented the one to many table so I can start with the data processing.
+
+	Week 7: Implemented the chart.js charts to the page to display information.
+
+	Week 8: Deployed my application to aws
+
+	Week 9: Got my authentification figured out and connected to the mysql database successfully.
+
+	Week 10: Added log in feature to get to admin page.
+
+	Week 11: Added user sign up page, added user roles including admin and registered user.
+
+	Week 12: Reworked the front end of the site. Migrated the chart page off the main screen.
+
+	Week 13: Started working on the dynamic chart generation.
+
+	Week 14: Started creating the my Rest service to get user orders for the dynamic chart.
+
+	Week 15: Added a Admin page to delete users. Now it is fully CRUD implemented.
+
+	Week 16: Working on all unit tests and rebuilding some features to look better.
+
 Plan:
 
 	Week 1-3: Get the visual and front end basic portion completed and get the page ready for testing with the services I will be adding.
@@ -22,4 +44,13 @@ Plan:
 	            to present the data in graph form to show the user their discounts and info. The plan is for two tables, one group table
 	            for group discounts and then the user table for individual discounts.
 
+<<<<<<< HEAD
 	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of orders past purchases.
+=======
+	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of users past purchases. My plan is to process
+	            all discounts on the front end with minimal back end use.
+
+	Week 11-13: Adding the users dynamic algorithms and group algorithms to the site.
+
+	Week 14-16: Clean up the website and come up with new artwork for release.
+>>>>>>> RollbackBranch

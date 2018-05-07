@@ -56,12 +56,24 @@ footer {
     -ms-transform: translate(-50%,-50%);
 }
 
+
+
 @media (max-width: 768px) {
-    #scrollButton {
+    #priceSection {
+        margin-bottom: 50%;
+    }
+    #contactContainer {
+        margin-top: 20%;
+    }
+    #infoMerch {
+        display: none;
+    }
+    #scrollButtonProduct {
         display: none;
     }
     #jumbotronImage {
-        margin-top: 10%;
+        display: none;
+
     }
     #merch {
         padding-left: 2%;
@@ -76,6 +88,43 @@ footer {
     }
     #hamburger {
         margin-top: 10px;
+    }
+    #chart-container {
+        width: 100%;
+        margin: 0%;
+        height: 90%;
+    }
+    #myChart {
+        height: 90%;
+    }
+    #priceOverlayText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 15px;
+        color: black;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        background-color: white;
+        margin-top: 5%;
+        border-radius: 10px;
+        padding: 10%;
+        width: 95%;
+        align-content: center;
+        text-align: center;
+    }
+    #mobileJumbotronImage {
+        width: 100%;
+        margin-top: 15%;
+        margin-bottom: 15%;
+    }
+    #merch {
+        display: flex;
+        align-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        padding-top: 15%;
     }
 
     #overlay {
@@ -98,6 +147,50 @@ footer {
 
 }
 @media (min-width: 768px) {
+    #contactContainer {
+        margin-top: 5%;
+    }
+    #navbarResponsive {
+        float: right;
+        align-content: right;
+    }
+    #priceSection {
+
+
+    }
+    #merch {
+        display: block;
+        align-content: center;
+        text-align: center;
+        width: 100%;
+        padding-top: 5%;
+    }
+    #mobileJumbotronImage {
+        display: none;
+    }
+    #priceOverlayText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 15px;
+        color: black;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        background-color: white;
+
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 1%;
+        border-radius: 10px;
+
+        align-content: center;
+        text-align: center;
+    }
+    #chart-container {
+        width: 60%;
+        padding-top: 15%;
+    }
     #shirt {
         display: none;
     }
@@ -106,6 +199,7 @@ footer {
         padding-top: 0%;
     }
 
+<<<<<<< HEAD
     #overlay {
         position: fixed; /* Sit on top of the page content */
         display: none; /* Hidden by default */
@@ -123,10 +217,89 @@ footer {
         z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer; /* Add a pointer on hover */
     }
+=======
+    #infoMerchText {
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        font-size: 15px;
+        margin-right: 10%;
+
+    }
+    #info {
+        display: none;
+    }
 }
-#jumbotronImage {
-    width: 100%;
+
+
+#warningMessages {
+    font-size: 12px;
+    padding-top: 30px;
+    color: red;
 }
+
+#priceOverlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+
+>>>>>>> RollbackBranch
+}
+#purchaseCancel {
+    margin-top: 1%;
+}
+
+
+
+#priceOverlayButton {
+    margin-top: 3%;
+    display: block;
+    align-content: center;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 15px;
+    color: black;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: white;
+
+    padding: 5%;
+    border-radius: 10px;
+
+}
+
+
+#signUptext{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 15px;
+    color: black;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: white;
+
+    padding: 5%;
+    border-radius: 10px;
+
+}
+
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
@@ -137,7 +310,21 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    background-color: rgba(0,0,0,0.2); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#signUpOverlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
 }
@@ -188,6 +375,53 @@ footer {
     height:50px;
     background-color: white;
 
+<<<<<<< HEAD
+    border:2px solid grey;
+    height:50px;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width:50px;
+=======
+    opacity: .85;
+   border:2px solid grey;
+   height:50px;
+   border-radius:50%;
+   -moz-border-radius:50%;
+   -webkit-border-radius:50%;
+   width:50px;
+
+   display: none;
+
+}
+#mobileScrollButton {
+    position:absolute;
+    bottom:10%;
+    right:45%;
+    width:100px;
+    height:50px;
+    background-color: white;
+
+    opacity: .85;
+   border:2px solid grey;
+   height:50px;
+   border-radius:50%;
+   -moz-border-radius:50%;
+   -webkit-border-radius:50%;
+   width:50px;
+>>>>>>> RollbackBranch
+
+   display: none;
+
+}
+
+
+#scrollButtonProduct {
+
+    width:100px;
+    height:50px;
+    background-color: white;
+
     border:2px solid grey;
     height:50px;
     border-radius:50%;
@@ -196,9 +430,21 @@ footer {
     width:50px;
 
 }
-#navbarLinks {
 
+<!--
+
+.hide{
+    display:none;
 }
+.show{
+    display:block;
+    position:absolute;
+    left: 200px;
+    top: 200px;
+    color: blue;
+}
+
+
 #palmTree {
     height: 30px;
     width: 30px;
@@ -249,15 +495,17 @@ i {
 #sendButton {
     margin-top: 10px;
 }
-#merch {
-    display: block;
-    align-content: center;
-    text-align: center;
-    width: 100%;
-}
+
+
 
 #shirtInfo {
+<<<<<<< HEAD
     align-content: center;
     width: 100%;
     margin-top: 15%;
+=======
+        align-content: center;
+        width: 100%;
+        margin-top: 5%;
+>>>>>>> RollbackBranch
 }

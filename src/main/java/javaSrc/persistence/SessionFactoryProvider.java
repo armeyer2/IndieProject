@@ -1,4 +1,4 @@
-package persistence;
+package javaSrc.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

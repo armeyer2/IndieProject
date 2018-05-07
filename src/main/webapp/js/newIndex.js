@@ -1,5 +1,34 @@
 (function($) {
   "use strict"; // Start of use strict
+  $(document).ready(function () {
+
+
+      if($(window).width() >= 768) {
+          setTimeout(function(){
+              $("#scrollButton").fadeIn(1500);
+
+          }, 2000);
+
+      }
+      if($(window).width() <= 768) {
+          $("#mobileScrollButton").fadeIn(2500);
+          $("#scrollButton").click(function () {
+               $("#scrollButtonProduct").fadeIn(3000);
+               console.log("window is smaller than 768");
+
+          });
+      }
+  })
+
+//scrolls to the center of the image
+  jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+                                                $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+                                                $(window).scrollLeft()) + "px");
+    return this;
+}
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
@@ -8,13 +37,66 @@
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         $('html, body').animate({
-          scrollTop: (target.offset().top - 48)
+          scrollTop: (target.offset().top - 20)
         }, 1000, "easeInOutExpo");
         return false;
       }
     }
   });
 
+<<<<<<< HEAD
+
+=======
+  $("#priceOverlayButton").click(function() {
+      $("#priceOverlay").fadeIn(750);
+  })
+
+  $('#scrollButton').click( function() {
+      $('merch').center();
+      console.log('scrollbuton clicked');
+  })
+
+
+  $("#signInSubmit").click(function () {
+
+      let firstName = $("#firstName").val();
+      if (firstName.length > 0) {
+          $("#overlay").fadeOut(750);
+          $("#signUp").html("Hello " + $("#firstName").val());
+      } else {
+          $("#warningMessages").html("*You must atleast enter a first name*");
+      }
+
+
+
+  });
+
+  $("#accountInfo").click(function () {
+     $("#overlay").fadeIn(750);
+  });
+>>>>>>> RollbackBranch
+
+
+
+  $("#signInCancel").click(function () {
+      $("#overlay").fadeOut(750);
+  });
+
+  $("#purchaseCancel").click(function () {
+      $("#priceOverlay").fadeOut(750);
+
+  });
+
+  $('#chart-container').click(function () {
+      setTimeout(showPrice, 2000);  //se
+      console.log("t shirt button clicked");
+
+  });
+
+  function showPrice() {
+      setTimeout(document.getElementById("my_div").className="show", 2000);  //se
+      console.log("showPrice opened");
+  }
 
 
 
