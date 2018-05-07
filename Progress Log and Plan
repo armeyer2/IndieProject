@@ -30,7 +30,7 @@ Time Log:
 
 	Week 15: Added a Admin page to delete users. Now it is fully CRUD implemented.
 
-	Week 16: Working on all unit tests and rebuilding some features to look better.
+	Week 16: Working on all unit tests and rebuilding some features to look better. Added location validation as well.
 
 Plan:
 
@@ -44,9 +44,8 @@ Plan:
 	            to present the data in graph form to show the user their discounts and info. The plan is for two tables, one group table
 	            for group discounts and then the user table for individual discounts.
 
-	Week 8-10: Want to add a Paypal purchasing feature that is linked with hybernate to keep track of users past purchases. My plan is to process
-	            all discounts on the front end with minimal back end use.
+	Week 8-10: Deploy the chart feature page
 
-	Week 11-13: Adding the users dynamic algorithms and group algorithms to the site.
+	Week 11-13: Adding the users dynamic algorithms and group algorithms to the site. Also add logging in feature.
 
-	Week 14-16: Clean up the website and come up with new artwork for release.
+	Week 14-16: Clean up the sites front end.
