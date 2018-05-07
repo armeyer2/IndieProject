@@ -85,10 +85,7 @@
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="signIn.jsp" id="signIn">Sign In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
+                    <a class="nav-link " href="userInfo" id="accountInfo">See Account Info</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " id="name">${firstName}</a>
@@ -99,34 +96,6 @@
     </div>
 </nav>
 
-
-
-<div id="overlay">
-  <div id="text">
-      <form action="/userInfo" method="GET">
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" name="username" class="form-control" id="username">
-          </div>
-          <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" name="pwd" class="form-control" id="pwd">
-          </div>
-          <button type="Submit" id="signInSubmit" value="Log In" class="btn btn-default">Submit</button>
-          <button type="button" id="signInCancel" class="btn btn-default">Cancel</button>
-          <p id="warningMessages"></p>
-      </form>
-  </div>
-</div>
-
-
-<form action="showOrders" method="get">
-    <input type="submit" value="Submit">
-</form>
-
-
-
-
 <section id="merch" class="content-section">
     <div class="container-fluid">
 
@@ -134,7 +103,7 @@
             <div id="infoMerch" class="col-md-4">
                 <div id="infoMerchText" >
                     <p id="inspirationText">This months line-up is inspired by the lush forests of Yellowstone National Park. Click to see your dynamic price</p>
-                    <a id="scrollButtonProduct" href="/chartPage" class="btn btn-basic js-scroll-trigger">
+                    <a id="scrollButtonProduct" href="chartPage" class="btn btn-basic js-scroll-trigger">
                         <i class="fa fa-angle-double-down animated"></i>
                     </a>
                 </div>

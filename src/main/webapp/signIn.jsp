@@ -19,9 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" href="css/formPage.css">
+    <script src="newIndex.js" type="application/javascript"></script>
+    <script src="js/validation.js" type="application/javascript"></script>
 
     <link rel="stylesheet" href="css/formPage.css">
 
@@ -56,7 +60,7 @@
 </nav>
 <div id="signUpOverlay">
     <div id="signUptext">
-        <form action="signIn" method="GET">
+        <form action="signIn" method="GET" name="signIn">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" class="form-control" id="username">

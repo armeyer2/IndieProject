@@ -23,6 +23,10 @@ import javaSrc.entity.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 
 /**
@@ -45,20 +49,48 @@ public class OrderPage extends HttpServlet {
 
         OrderDOA orderDOA = new OrderDOA();
         String itemType = req.getParameter("itemType");
+        String address = req.getParameter("address");
+        String city = req.getParameter("city");
+        String state = req.getParameter("state");
+        String parsedAddress = address.replaceAll(" ", "+");
 
-        UserDOA userDoa = new UserDOA();
-        List<User> user = userDoa.getByPropertyEqual("userName", req.getRemoteUser());
+        //logger.info("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"+"+city+"+"+state+",+Madison,+WI&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
 
-        Order order = new Order();
-        order.setDescription(itemType);
-        order.setMonth("May");
-        order.setUser(user.get(0));
+        String response = addressChecker(parsedAddress, state, city);
 
-        orderDOA.insert(order);
+        int returnId = 0;
 
-        req.setAttribute("confirmation", "Your order has been placed!");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/chartPage.jsp");
-        dispatcher.forward(req, resp);
+        if (response != null) {
+            UserDOA userDoa = new UserDOA();
+            List<User> user = userDoa.getByPropertyEqual("userName", req.getRemoteUser());
+
+            Order order = new Order();
+            order.setDescription(itemType);
+            order.setMonth("May");
+            order.setUser(user.get(0));
+
+            returnId = orderDOA.insert(order);
+
+            if (returnId > 0) {
+                req.setAttribute("confirmation", "Your order has been placed!");
+                resp.sendRedirect("/chartPage");
+                return;
+            } else {
+                req.setAttribute("confirmation", "There has been an error");
+            }
+
+        } else {
+            req.setAttribute("confirmation", "There is an error in your address");
+        }
+
+    }
+
+    public String addressChecker(String address, String state, String city) {
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"+"+city+"+"+state+",+Madison,+WI&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        return response;
     }
 }
 

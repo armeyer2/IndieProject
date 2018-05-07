@@ -1,7 +1,17 @@
 package javaSrc.persistence;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.boot.model.relational.Database;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
+
+import java.io.InputStream;
 import java.lang.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,11 +20,19 @@ import org.junit.jupiter.api.Test;
 import javaSrc.entity.Order;
 import javaSrc.entity.User;
 import javaSrc.persistence.OrderDOA;
+import org.json.*;
 
 
+import javax.json.Json;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,6 +42,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderDaoTest {
 
     OrderDOA dao;
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
      * Creating the dao.
@@ -93,7 +112,7 @@ class OrderDaoTest {
         assertEquals("Dave", insertedOrder.getUser().getFirstName());
 
         dao.delete(newOrder);
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+
     }
 
 
@@ -113,6 +132,17 @@ class OrderDaoTest {
         dao.delete(newOrder);
         List<Order> orders = dao.getByPropertyLike("description", "February Large Test-Tshirt Delete");
         assertEquals(0, orders.size());
+    }
+
+    @Test
+    void addressSuccess() {
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target("https://maps.googleapis.com/maps/api/geocode/json?address=2222+lunde&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+
+        logger.info(response);
     }
 
     /**

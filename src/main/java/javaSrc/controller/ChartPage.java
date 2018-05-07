@@ -23,6 +23,10 @@ import javaSrc.entity.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 
 /**
@@ -55,40 +59,23 @@ public class ChartPage extends HttpServlet {
         int dynamicPrice = 40;
 
         for (Order order : orders) {
-            map = new HashMap<Object,Object>(); map.put("label", order.getMonth()); map.put("y", dynamicPrice); list.add(map);
+
+            if (!order.getMonth().equals("May")) {
+                map = new HashMap<Object,Object>(); map.put("label", order.getMonth()); map.put("y", dynamicPrice); list.add(map);
+            }
+
             if (order.getMonth().equals("April")) {
                 dynamicPrice = dynamicPrice - 5;
-                req.setAttribute("price", dynamicPrice);
             }
             if (order.getMonth().equals("March")) {
                 dynamicPrice = dynamicPrice - 3;
-            } else {
+            }
+            if (!order.getMonth().equals("March") && !order.getMonth().equals("April") && !order.getMonth().equals("May")) {
                 dynamicPrice = dynamicPrice - 2;
             }
-
         }
 
-
-
-        /*String userName = user.get(0).getUserName();
-        URL url = new URL("http://18.219.196.205:8080/IndieProject/service/users/" + userName);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-
-        int status = con.getResponseCode();
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-            logger.info(inputLine);
-        }
-        in.close();
-        con.disconnect();*/
-
-
-
+        req.setAttribute("price", dynamicPrice);
         String dataPoints = gsonObj.toJson(list);
         req.setAttribute("dataPoints", dataPoints);
         //<%out.print(dataPoints);%>

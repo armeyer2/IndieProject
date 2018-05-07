@@ -22,6 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="css/formPage.css">
+    <scipt src="js/validation"></scipt>
     <script type="text/javascript">
         window.onload = function() {
 
@@ -50,26 +51,34 @@
 <body>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
-<div>Your Price: ${price}</div>
-
-<div id="signUpOverlay">
-    <div id="signUptext">
-        <form action="/orderPage" method="POST">
-            <select name="itemType">
-                <option value="May long sleeve">May Long Sleeve</option>
-                <optgroup value="May short sleeve">May Short Sleeve</optgroup>
-            </select>
-            <select name="amount">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <br><br>
-            <input type="submit">
-        </form>
+<div class="container-fluid">
+    <div id="signUpOverlay">
+        <div id="signUptext">
+            Your Price: $${price}.00
+            <form action="/orderPage" method="POST" name="orderForm">
+                <select name="itemType">
+                    <option value="May long sleeve">May Long Sleeve</option>
+                    <optgroup value="May short sleeve">May Short Sleeve</optgroup>
+                </select>
+                <select name="amount">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <br><br>
+                <label for="address">Address: </label>
+                <input type="text" name="address" id="address">
+                <label for="city">City: </label>
+                <input type="text" name="city" id="city">
+                <label for="state">State: </label>
+                <input type="text" name="state" id="state">
+                <input type="submit">
+            </form>
+        </div>
     </div>
 </div>
+
 
 <p>${confirmation}</p>
 

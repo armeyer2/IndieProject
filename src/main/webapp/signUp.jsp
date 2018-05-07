@@ -20,9 +20,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
     <link rel="stylesheet" href="css/formPage.css">
     <script src="newIndex.js" type="application/javascript"></script>
+    <script src="js/validation.js" type="application/javascript"></script>
 
 </head>
 <body>
@@ -54,7 +56,7 @@
 </nav>
 <div id="signUpOverlay">
     <div id="signUptext">
-        <form action="signUp" method="POST">
+        <form action="signUp" method="POST" name="signUp">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" name="firstName" class="form-control" id="firstName">
@@ -76,14 +78,15 @@
                 <input type="password" name="pwd" class="form-control" id="pwd">
             </div>
             <div class="form-group">
-                <label for="re-pwd">Repeat Password:</label>
-                <input type="password" name="re-pwd" class="form-control" id="re-pwd">
+                <label for="repwd">Repeat Password:</label>
+                <input type="password" name="repwd" class="form-control" id="repwd">
             </div>
             <button type="Submit" id="signUpSubmit" value="Log In" class="btn btn-default">Submit</button>
             <button type="button" id="signUpCancel" href="/index.jsp" class="btn btn-default">Cancel</button>
         </form>
     </div>
 </div>
+<p>${error}</p>
 
 </body>
 </html>

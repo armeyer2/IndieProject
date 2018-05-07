@@ -32,10 +32,9 @@ public class UserInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String username = req.getParameter("username");
         UserDOA userDOA = new UserDOA();
 
-        req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
+        req.setAttribute("user", userDOA.getByPropertyEqual("userName", req.getRemoteUser()));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/accountInfo.jsp");
         dispatcher.forward(req, resp);

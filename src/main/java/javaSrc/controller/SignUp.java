@@ -46,16 +46,19 @@ public class SignUp extends HttpServlet {
         String birthYearString = req.getParameter("birthYear");
         int birthYear = Integer.parseInt(birthYearString);
 
-        UserDOA userDOA = new UserDOA();
-        User newUser = new User(firstName, lastName, username, birthYear, password);
-        Role role = new Role(newUser, "registered-user", newUser.getUserName());
+            UserDOA userDOA = new UserDOA();
+            User newUser = new User(firstName, lastName, username, birthYear, password);
+            Role role = new Role(newUser, "registered-user", newUser.getUserName());
 
 
-        int id = userDOA.insert(newUser);
+            int id = userDOA.insert(newUser);
 
-        //req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
+            //req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(req, resp);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+            dispatcher.forward(req, resp);
+
+
+
     }
 }
