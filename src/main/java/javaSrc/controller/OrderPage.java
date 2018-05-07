@@ -1,7 +1,10 @@
 package javaSrc.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import javaSrc.entity.Order;
+import javaSrc.geocoder.Response;
+import javaSrc.geocoder.ResultsItem;
 import javaSrc.persistence.OrderDOA;
 import javaSrc.persistence.UserDOA;
 import org.apache.logging.log4j.LogManager;
@@ -60,7 +63,7 @@ public class OrderPage extends HttpServlet {
 
         int returnId = 0;
 
-        if (response != null) {
+        if (!response.equals("notFound")) {
             UserDOA userDoa = new UserDOA();
             List<User> user = userDoa.getByPropertyEqual("userName", req.getRemoteUser());
 
@@ -81,16 +84,36 @@ public class OrderPage extends HttpServlet {
 
         } else {
             req.setAttribute("confirmation", "There is an error in your address");
+            resp.sendRedirect("errorPage.jsp");
         }
 
     }
 
     public String addressChecker(String address, String state, String city) {
-        Client client = ClientBuilder.newClient();
-        WebTarget target =
-                client.target("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"+"+city+"+"+state+",+Madison,+WI&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
-        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        return response;
+
+        try {
+
+            Client client = ClientBuilder.newClient();
+            WebTarget target =
+                    client.target("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"+"+city+"+"+state+",+Madison,+WI&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+
+            ObjectMapper mapper = new ObjectMapper();
+            Response results = mapper.readValue(response, Response.class);
+            ResultsItem result = results.getResults().get(0);
+
+
+            return result.getPlaceId();
+            //logger.info(value1);
+        } catch (IOException io) {
+            logger.info("IOException Thrown: Incorrect Address");
+            return "notFound";
+        } catch (IndexOutOfBoundsException index) {
+            return "notFound";
+        }
+
+
     }
 }
 

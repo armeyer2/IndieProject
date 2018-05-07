@@ -146,17 +146,26 @@ class OrderDaoTest {
 
     @Test
     void addressSuccess() throws IOException {
-        Client client = ClientBuilder.newClient();
-        WebTarget target =
-                client.target("https://maps.googleapis.com/maps/api/geocode/json?address=4500+maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
-        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
-        ObjectMapper mapper = new ObjectMapper();
-        Response results = mapper.readValue(response, Response.class);
-        ResultsItem result = results.getResults().get(0);
+        try {
 
-        logger.info(result.getPlaceId());
-        //logger.info(value1);
+            Client client = ClientBuilder.newClient();
+            WebTarget target =
+                    client.target("https://maps.googleapis.com/maps/api/geocode/json?address=4500+Maher+ave,+madison,+wi&key=AIzaSyDzKxQ_kUeJYcL91WnyvhOd_FZvcXLwGiQ");
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+            logger.info(response);
+
+            ObjectMapper mapper = new ObjectMapper();
+            Response results = mapper.readValue(response, Response.class);
+            ResultsItem result = results.getResults().get(0);
+
+            result.getPlaceId();
+            logger.info(result.getPlaceId());
+            //logger.info(value1);
+        } catch (IOException io) {
+            logger.info("IOException Thrown: Incorrect Address");
+        }
 
     }
 
