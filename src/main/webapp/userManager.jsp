@@ -47,14 +47,16 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="showOrders" id="admin">Admin</a>
+                    <a class="nav-link " href="userManager" id="admin">Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
+                    <a class="nav-link " href="userInfo" id="accountInfo">See Account Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="name">${firstName}</a>
                 </li>
 
             </ul>
