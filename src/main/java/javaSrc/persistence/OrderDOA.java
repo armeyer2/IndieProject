@@ -14,6 +14,11 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+/**
+ * DOA for orders
+ * author ameyer
+ */
+
 public class OrderDOA {
 
     private final Logger logger = LogManager.getLogger(this.getClass());

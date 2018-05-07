@@ -33,7 +33,7 @@ import javax.ws.rs.core.MediaType;
 
 
 /**
- * A simple servlet to show orders
+ * A simple servlet to submit an order
  * @author ameyer
  */
 

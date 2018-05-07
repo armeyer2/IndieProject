@@ -67,7 +67,7 @@ class OrderDaoTest {
     @Test
     void getAllOrdersSuccess() {
         List<Order> orders = dao.getAllOrders();
-        assertEquals(3, orders.size());
+        assertEquals(14, orders.size());
     }
 
 

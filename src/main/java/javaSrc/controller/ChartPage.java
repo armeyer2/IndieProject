@@ -30,7 +30,7 @@ import javax.ws.rs.core.MediaType;
 
 
 /**
- * A simple servlet to show orders
+ * This servlet displays the chart and form to order
  * @author ameyer
  */
 

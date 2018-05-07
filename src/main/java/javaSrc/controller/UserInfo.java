@@ -20,7 +20,7 @@ import javaSrc.persistence.*;
 
 
 /**
- * A simple servlet to show orders
+ * A simple servlet to show the users info on the page
  * @author ameyer
  */
 

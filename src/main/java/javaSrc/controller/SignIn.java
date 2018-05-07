@@ -25,7 +25,7 @@ import org.jvnet.tiger_types.Lister;
 
 
 /**
- * A simple servlet to show orders
+ * A servlet to sign in to the application, does nothing else
  * @author ameyer
  */
 

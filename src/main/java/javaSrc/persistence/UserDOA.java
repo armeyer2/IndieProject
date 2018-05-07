@@ -11,6 +11,11 @@ import javaSrc.persistence.SessionFactoryProvider;
 import javax.persistence.criteria.*;
 import java.util.List;
 
+/**
+ * DOA for users
+ * author ameyer
+ */
+
 public class UserDOA {
 
     private final Logger logger = LogManager.getLogger(this.getClass());

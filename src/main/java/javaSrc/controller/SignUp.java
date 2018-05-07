@@ -24,7 +24,7 @@ import org.apache.logging.log4j.Logger;
 
 
 /**
- * A simple servlet to show orders
+ * A servlet that allows users to sign up
  * @author ameyer
  */
 

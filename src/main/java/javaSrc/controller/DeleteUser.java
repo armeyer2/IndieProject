@@ -23,7 +23,7 @@ import javax.servlet.annotation.*;
 
 
 /**
- * A simple servlet to show users
+ * A simple servlet to delete users
  * @author ameyer
  */
 

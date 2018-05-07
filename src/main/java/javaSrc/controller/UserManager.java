@@ -20,7 +20,7 @@ import javax.servlet.annotation.*;
 
 
 /**
- * A simple servlet to show users
+ * A servlet to manage all users on the site
  * @author ameyer
  */
 
