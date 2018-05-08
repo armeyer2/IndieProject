@@ -62,6 +62,7 @@
         </div>
     </div>
 </nav>
+
 <div class="container-fluid">
     <div class="row">
         <div id="users" class="col-xs-6">
