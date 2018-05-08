@@ -1,5 +1,7 @@
-#signUpOverlay {
+#signUpPage {
     margin: 10%;
+    width: 60%;
+    align-content: center;
 }
 #userTable {
     margin-left: auto;
@@ -8,6 +10,18 @@
 #palmTree {
     height: 30px;
     width: 30px;
+}
+#users {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+#orders {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+#jSecurity {
+    margin-top: 10%;
+    margin-left: 3%;
 }
 #userTable {
     align-content: center;
@@ -18,7 +32,7 @@
 canvas {
     margin-top: 3%;
 }
-#signUptext {
+#signUpForm {
     align-content: center;
 }
 #chartContainer {

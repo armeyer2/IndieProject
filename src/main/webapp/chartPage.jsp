@@ -50,9 +50,10 @@
     </script>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">April</a>
+        <a class="navbar-brand js-scroll-trigger" href="indexServlet">April</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,23 +63,22 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul id="navbarLinks"class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#merch">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="userManager" id="admin">Admin</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="signIn" id="signIn">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="logoutUser" id="logout">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="userInfo" id="accountInfo">See Account Info</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " id="name">${firstName}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="userManager" id="admin">Admin Page</a>
                 </li>
 
             </ul>
@@ -88,28 +88,41 @@
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
 <div class="container-fluid">
-    <div id="signUpOverlay">
-        <div id="signUptext">
+    <div id="signUpPage">
+        <div id="signUpForm">
             Your Price: $${price}.00
             <form action="orderPage" method="POST" name="orderForm">
-                <select name="itemType">
-                    <option value="May long sleeve">May Long Sleeve</option>
-                    <optgroup value="May short sleeve">May Short Sleeve</optgroup>
-                </select>
-                <select name="amount">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <br><br>
-                <label for="address">Address: </label>
-                <input type="text" name="address" id="address">
-                <label for="city">City: </label>
-                <input type="text" name="city" id="city">
-                <label for="state">State: </label>
-                <input type="text" name="state" id="state">
-                <input type="submit">
+                <div class="form-group">
+                    <select name="itemType">
+                        <option value="May long sleeve">May Long Sleeve</option>
+                        <optgroup value="May short sleeve">May Short Sleeve</optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="amount">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address: </label>
+                    <input type="text" name="address" id="address">
+                </div>
+                <div class="form-group">
+                    <label for="city">City: </label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="state">State: </label>
+                    <input type="text" name="state" id="state">
+                </div>
+                <div class="form-group">
+                    <input type="submit">
+                </div>
+
+
             </form>
         </div>
     </div>

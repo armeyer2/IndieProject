@@ -23,14 +23,14 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 
     <link rel="stylesheet" href="css/formPage.css">
-    <script src="newIndex.js" type="application/javascript"></script>
+
     <script src="js/validation.js" type="application/javascript"></script>
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div  id="hamburger"class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index.jsp">April</a>
+        <a class="navbar-brand js-scroll-trigger" href="indexServlet">April</a>
         <img id="palmTree" src="img/palm tree navbar logo.png" alt="">
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,23 +39,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul id="navbarLinks"class="navbar-nav ml-auto">
-
                 <li class="nav-item">
-                    <a class="nav-link " href="userManager" id="admin">Admin</a>
+                    <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/signUp.jsp" id="signUp">Sign Up</a>
+                    <a class="nav-link " href="signIn" id="signIn">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#overlay" id="accountInfo">See Account Info</a>
+                    <a class="nav-link " href="logoutUser" id="logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="userInfo" id="accountInfo">See Account Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " id="name">${firstName}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="userManager" id="admin">${adminPage}</a>
                 </li>
 
             </ul>
         </div>
     </div>
 </nav>
-<div id="signUpOverlay">
-    <div id="signUptext">
+<div id="signUpPage">
+    <div id="signUpForm">
         <form action="signUp" method="POST" name="signUp">
             <div class="form-group">
                 <label for="firstName">First Name:</label>

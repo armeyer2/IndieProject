@@ -4,5 +4,5 @@
 
 </head>
 <body>
-    <p>Error logging in</p>
+    <p>Incorrect credentials, return <a href="index.jsp">here.</a></p>
 </body>

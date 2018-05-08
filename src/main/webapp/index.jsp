@@ -72,23 +72,22 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul id="navbarLinks"class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#merch">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="userManager" id="admin">Admin</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link " href="signUp.jsp" id="signUp">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="signIn" id="signIn">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="logoutUser" id="logout">Logout</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="userInfo" id="accountInfo">See Account Info</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " id="name">${firstName}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="userManager" id="admin">Admin Page</a>
                 </li>
 
             </ul>

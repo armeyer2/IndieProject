@@ -40,27 +40,9 @@ public class SignIn extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String username = req.getParameter("username");
-        String password = req.getParameter("pwd");
 
-        UserDOA userDOA = new UserDOA();
-        List<User> user = userDOA.getByPropertyEqual("userName", username);
-
-        String userPassword = user.get(0).getPassword();
-        logger.info(password);
-        logger.info(userPassword);
-
-
-        //req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
-        if (userPassword.equals(password)) {
-            req.setAttribute("firstName", user.get(0).getFirstName());
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/indexServlet");
             dispatcher.forward(req, resp);
-        } else {
-            req.setAttribute("error", "Incorrect Username or Password");
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/signIn.jsp");
-            dispatcher.forward(req, resp);
-        }
 
 
     }

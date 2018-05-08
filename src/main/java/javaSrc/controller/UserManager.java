@@ -35,8 +35,10 @@ public class UserManager extends HttpServlet {
         ServletContext context = req.getServletContext();
 
         UserDOA users = new UserDOA();
+        OrderDOA orders = new OrderDOA();
 
         req.setAttribute("users",  users.getAll());
+        req.setAttribute("orders", orders.getAllOrders());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/userManager.jsp");
         dispatcher.forward(req, resp);
     }

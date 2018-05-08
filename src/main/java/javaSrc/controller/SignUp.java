@@ -55,7 +55,7 @@ public class SignUp extends HttpServlet {
 
             //req.setAttribute("user", userDOA.getByPropertyEqual("userName", username));
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("indexServlet");
             dispatcher.forward(req, resp);
 
 
