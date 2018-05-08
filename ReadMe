@@ -3,3 +3,5 @@ Problem: Ordering clothing online can be expensive and offer little to no discou
 My solution: I am creating a dynamic single page application that will draw customers back to the site and encourage more people to buy with discounts based on a couple factors. The more who pledge to buy the item the lower the price will get regardless if they are returning customers. Second if you are a returning customer you will get a discount based on how often you purchase items and your month to month consistency. This will encourage people to return for every sale and in turn lower the price for everyone and encourage even more buyers.
 
 Web Services: I will be presenting graphical information dynamic to each customer showing them their prices and what discounts they and the group has accumulated hopefully inspiring more purchases. The price will be based on prior purchases and how recent of purchases they have made. I also added google geocodeing address validation for when they submit their order.
+
+Video Demos are all located in the Video Demos folder.
