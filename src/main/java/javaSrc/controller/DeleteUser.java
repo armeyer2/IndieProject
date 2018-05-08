@@ -44,6 +44,7 @@ public class DeleteUser extends HttpServlet {
         int id = Integer.parseInt(userId);
 
         UserDOA user = new UserDOA();
+        OrderDOA order = new OrderDOA();
         List<User> userList = user.getByPropertyEqual("id", userId);
         User userDelete = userList.get(0);
         logger.info(userDelete);
@@ -51,6 +52,7 @@ public class DeleteUser extends HttpServlet {
 
 
         req.setAttribute("users",  user.getAll());
+        req.setAttribute("orders", order.getAllOrders());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/userManager.jsp");
         dispatcher.forward(req, resp);
     }

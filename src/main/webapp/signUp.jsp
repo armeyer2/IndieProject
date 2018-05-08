@@ -64,7 +64,7 @@
 </nav>
 <div id="signUpPage">
     <div id="signUpForm">
-        <form action="/signUp" method="POST" name="signUp">
+        <form action="signUp" method="POST" name="signUp">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" name="firstName" class="form-control" id="firstName">
